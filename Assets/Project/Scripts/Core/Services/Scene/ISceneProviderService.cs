@@ -1,4 +1,4 @@
-namespace EmpireCafe.Core.Services.Scene
+namespace Fingers.Core.Services.Scene
 {
     public interface ISceneProviderService : IService
     {

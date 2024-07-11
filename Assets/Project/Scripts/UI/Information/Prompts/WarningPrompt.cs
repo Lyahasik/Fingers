@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace EmpireCafe.UI.Information.Prompts
+namespace Fingers.UI.Information.Prompts
 {
     public class WarningPrompt : MonoBehaviour
     {

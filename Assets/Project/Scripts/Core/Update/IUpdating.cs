@@ -1,4 +1,4 @@
-﻿namespace EmpireCafe.Core.Update
+﻿namespace Fingers.Core.Update
 {
     public interface IUpdating
     {

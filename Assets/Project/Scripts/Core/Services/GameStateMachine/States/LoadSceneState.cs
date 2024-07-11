@@ -1,9 +1,8 @@
+using Fingers.Core.Coroutines;
+using Fingers.UI.Loading;
 using UnityEngine;
 
-using EmpireCafe.Core.Coroutines;
-using EmpireCafe.UI.Loading;
-
-namespace EmpireCafe.Core.Services.GameStateMachine.States
+namespace Fingers.Core.Services.GameStateMachine.States
 {
     public class LoadSceneState : IState
     {

@@ -1,8 +1,7 @@
 ﻿using System;
+using Fingers.Core.Services;
 
-using EmpireCafe.Core.Services;
-
-namespace EmpireCafe.Core.Publish.Services.Ads
+namespace Fingers.Core.Publish.Services.Ads
 {
     public interface IProcessingAdsService : IService
     {

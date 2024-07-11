@@ -1,4 +1,4 @@
-namespace EmpireCafe.Core.Publish
+namespace Fingers.Core.Publish
 {
     public abstract class AdsModule
     {

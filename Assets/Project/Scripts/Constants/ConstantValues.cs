@@ -1,4 +1,4 @@
-﻿namespace EmpireCafe.Constants
+﻿namespace Fingers.Constants
 {
     public static class ConstantValues
     {

@@ -1,8 +1,7 @@
+using Fingers.Core.Services.Progress;
 using UnityEngine;
 
-using EmpireCafe.Core.Services.Progress;
-
-namespace EmpireCafe.Core.Services.GameStateMachine.States
+namespace Fingers.Core.Services.GameStateMachine.States
 {
     public class LoadProgressState : IState
     {

@@ -1,10 +1,9 @@
 using System.Runtime.InteropServices;
+using Fingers.Constants;
+using Fingers.Helpers;
 using UnityEngine;
 
-using EmpireCafe.Constants;
-using EmpireCafe.Helpers;
-
-namespace EmpireCafe.Core.Publish.Web.Yandex
+namespace Fingers.Core.Publish.Web.Yandex
 {
     public class YandexAdsModule : AdsModule
     {

@@ -1,7 +1,7 @@
-using EmpireCafe.Core.Progress;
-using EmpireCafe.Core.Services.Scene;
+using Fingers.Core.Progress;
+using Fingers.Core.Services.Scene;
 
-namespace EmpireCafe.Core.Services.Progress
+namespace Fingers.Core.Services.Progress
 {
     public interface IProgressProviderService : IService
     {

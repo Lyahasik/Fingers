@@ -1,12 +1,11 @@
 using System;
 using System.Collections.Generic;
+using Fingers.Core.Coroutines;
+using Fingers.Core.Services.GameStateMachine.States;
+using Fingers.Core.Services.Progress;
+using Fingers.UI.Loading;
 
-using EmpireCafe.Core.Coroutines;
-using EmpireCafe.Core.Services.GameStateMachine.States;
-using EmpireCafe.Core.Services.Progress;
-using EmpireCafe.UI.Loading;
-
-namespace EmpireCafe.Core.Services.GameStateMachine
+namespace Fingers.Core.Services.GameStateMachine
 {
     public class GameStateMachine : IGameStateMachine
     {

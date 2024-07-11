@@ -1,10 +1,9 @@
-﻿using UnityEngine;
+﻿using Fingers.Core.Publish.Services.Ads;
+using Fingers.Core.Services.StaticData;
+using Fingers.UI.Information.Prompts;
+using UnityEngine;
 
-using EmpireCafe.Core.Publish.Services.Ads;
-using EmpireCafe.Core.Services.StaticData;
-using EmpireCafe.UI.Information.Prompts;
-
-namespace EmpireCafe.UI.Information
+namespace Fingers.UI.Information
 {
     public class InformationView : MonoBehaviour
     {
@@ -13,6 +12,11 @@ namespace EmpireCafe.UI.Information
 
         [Space]
         [SerializeField] private WarningPrompt warningPrompt;
+        
+        private void Awake()
+        {
+            GetComponent<Canvas>().worldCamera = Camera.main;
+        }
 
         public void Initialize(IStaticDataService staticDataService,
             IProcessingAdsService processingAdsService)

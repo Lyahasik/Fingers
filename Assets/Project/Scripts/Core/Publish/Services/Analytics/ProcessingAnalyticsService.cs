@@ -1,9 +1,8 @@
-﻿using UnityEngine;
+﻿using Fingers.Core.Publish.Web.Yandex;
+using Fingers.Helpers;
+using UnityEngine;
 
-using EmpireCafe.Core.Publish.Web.Yandex;
-using EmpireCafe.Helpers;
-
-namespace EmpireCafe.Core.Publish.Services.Analytics
+namespace Fingers.Core.Publish.Services.Analytics
 {
     public class ProcessingAnalyticsService : IProcessingAnalyticsService
     {

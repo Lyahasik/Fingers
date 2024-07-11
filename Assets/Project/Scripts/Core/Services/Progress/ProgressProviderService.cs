@@ -1,21 +1,21 @@
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using Fingers.Constants;
+using Fingers.Core.Progress;
+using Fingers.Core.Publish;
+using Fingers.Core.Publish.Services.Analytics;
+using Fingers.Core.Services.GameStateMachine;
+using Fingers.Core.Services.GameStateMachine.States;
+using Fingers.Core.Services.Scene;
+using Fingers.Core.Services.StaticData;
+using Fingers.Core.Update;
+using Fingers.Gameplay.Scores;
+using Fingers.Gameplay.Wallet;
+using Fingers.Helpers;
 using Newtonsoft.Json;
 using UnityEngine;
 
-using EmpireCafe.Constants;
-using EmpireCafe.Core.Progress;
-using EmpireCafe.Core.Publish;
-using EmpireCafe.Core.Publish.Services.Analytics;
-using EmpireCafe.Core.Services.GameStateMachine;
-using EmpireCafe.Core.Services.GameStateMachine.States;
-using EmpireCafe.Core.Services.Scene;
-using EmpireCafe.Core.Services.StaticData;
-using EmpireCafe.Core.Update;
-using EmpireCafe.Gameplay.Wallet;
-using EmpireCafe.Helpers;
-
-namespace EmpireCafe.Core.Services.Progress
+namespace Fingers.Core.Services.Progress
 {
     public class ProgressProviderService : IProgressProviderService, IUpdating
     {
@@ -185,7 +185,8 @@ namespace EmpireCafe.Core.Services.Progress
             {
                 TimeGame = 0f,
                 
-                Wallet = new WalletData(staticDataService.StartProgress.money1, staticDataService.StartProgress.money2)
+                Wallet = new WalletData(staticDataService.StartProgress.money),
+                ScoresData = new ScoresData()
             };
 
             SaveProgress();

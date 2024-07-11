@@ -1,9 +1,8 @@
 ﻿using System;
+using Fingers.Gameplay.Wallet;
 using UnityEngine;
 
-using EmpireCafe.Gameplay.Wallet;
-
-namespace EmpireCafe.Gameplay.StaticData
+namespace Fingers.Gameplay.StaticData
 {
     [Serializable]
     public class MoneyData

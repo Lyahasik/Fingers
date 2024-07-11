@@ -1,10 +1,9 @@
+using Fingers.Core.Coroutines;
+using Fingers.Core.Services;
+using Fingers.UI.Loading;
 using UnityEngine;
 
-using EmpireCafe.Core.Coroutines;
-using EmpireCafe.Core.Services;
-using EmpireCafe.UI.Loading;
-
-namespace EmpireCafe.Core.Initialize
+namespace Fingers.Core.Initialize
 {
     public class GameData : MonoBehaviour
     {

@@ -1,21 +1,20 @@
 using System;
+using Fingers.Constants;
+using Fingers.Core.Publish.Services.Ads;
+using Fingers.Core.Publish.Services.Analytics;
+using Fingers.Core.Services.Factories.Gameplay;
+using Fingers.Core.Services.Factories.UI;
+using Fingers.Core.Services.GameStateMachine;
+using Fingers.Core.Services.GameStateMachine.States;
+using Fingers.Core.Services.Progress;
+using Fingers.Core.Services.StaticData;
+using Fingers.Core.Update;
+using Fingers.Gameplay;
+using Fingers.Gameplay.Wallet.Services;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-using EmpireCafe.Constants;
-using EmpireCafe.Core.Publish.Services.Ads;
-using EmpireCafe.Core.Publish.Services.Analytics;
-using EmpireCafe.Core.Services.Factories.Gameplay;
-using EmpireCafe.Core.Services.Factories.UI;
-using EmpireCafe.Core.Services.GameStateMachine;
-using EmpireCafe.Core.Services.GameStateMachine.States;
-using EmpireCafe.Core.Services.Progress;
-using EmpireCafe.Core.Services.StaticData;
-using EmpireCafe.Core.Update;
-using EmpireCafe.Gameplay;
-using EmpireCafe.Gameplay.Wallet.Services;
-
-namespace EmpireCafe.Core.Services.Scene
+namespace Fingers.Core.Services.Scene
 {
     public class SceneProviderService : ISceneProviderService
     {

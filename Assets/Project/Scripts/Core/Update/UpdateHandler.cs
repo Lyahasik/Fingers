@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace EmpireCafe.Core.Update
+namespace Fingers.Core.Update
 {
     public class UpdateHandler : MonoBehaviour
     {

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace EmpireCafe.UI.Information.Services
+namespace Fingers.UI.Information.Services
 {
     public class InformationService : IInformationService
     {

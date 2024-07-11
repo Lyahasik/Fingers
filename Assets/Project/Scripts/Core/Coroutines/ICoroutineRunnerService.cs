@@ -1,9 +1,8 @@
 using System.Collections;
+using Fingers.Core.Services;
 using UnityEngine;
 
-using EmpireCafe.Core.Services;
-
-namespace EmpireCafe.Core.Coroutines
+namespace Fingers.Core.Coroutines
 {
     public interface ICoroutineRunnerService : IService
     {

@@ -1,4 +1,4 @@
-namespace EmpireCafe.Core.Services.Progress
+namespace Fingers.Core.Services.Progress
 {
     public interface IWritingProgress : IReadingProgress
     {

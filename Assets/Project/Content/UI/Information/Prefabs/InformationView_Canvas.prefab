@@ -267,7 +267,7 @@ Canvas:
   m_GameObject: {fileID: 5710153755574089714}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -347,7 +347,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   capArea: {fileID: 4619741203188534230}
   closeButton: {fileID: 886254009444798402}
-  cellItemView: {fileID: 0}
   warningPrompt: {fileID: 8645926913196019056}
 --- !u!1 &7456611472015828697
 GameObject:

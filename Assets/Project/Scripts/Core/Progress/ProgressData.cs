@@ -1,12 +1,14 @@
-﻿using EmpireCafe.Gameplay.Wallet;
+﻿using Fingers.Gameplay.Scores;
+using Fingers.Gameplay.Wallet;
 
-namespace EmpireCafe.Core.Progress
+namespace Fingers.Core.Progress
 {
     public class ProgressData
     {
         public float TimeGame;
 
         public WalletData Wallet;
+        public ScoresData ScoresData;
         
         public static bool operator==(ProgressData value1, ProgressData value2)
         {

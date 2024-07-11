@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace EmpireCafe.Core.Scene
+namespace Fingers.Core.Scene
 {
     public class ToDontDestroyOnLoad : MonoBehaviour
     {

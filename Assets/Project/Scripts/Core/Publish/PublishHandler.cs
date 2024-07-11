@@ -1,12 +1,11 @@
 using System.Runtime.InteropServices;
+using Fingers.Core.Publish.Services.Ads;
+using Fingers.Core.Publish.Web.Yandex;
+using Fingers.Core.Services.Progress;
+using Fingers.Helpers;
 using UnityEngine;
 
-using EmpireCafe.Core.Publish.Services.Ads;
-using EmpireCafe.Core.Publish.Web.Yandex;
-using EmpireCafe.Core.Services.Progress;
-using EmpireCafe.Helpers;
-
-namespace EmpireCafe.Core.Publish
+namespace Fingers.Core.Publish
 {
     public class PublishHandler : MonoBehaviour
     {

@@ -1,8 +1,7 @@
 using System.Runtime.InteropServices;
+using Fingers.Helpers;
 
-using EmpireCafe.Helpers;
-
-namespace EmpireCafe.Core.Publish.Web.Yandex
+namespace Fingers.Core.Publish.Web.Yandex
 {
     public class YandexDataModule : DataModule
     {

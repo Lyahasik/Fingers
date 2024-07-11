@@ -1,4 +1,4 @@
-﻿namespace EmpireCafe.Gameplay.Wallet
+﻿namespace Fingers.Gameplay.Wallet
 {
     public enum CurrencyType
     {

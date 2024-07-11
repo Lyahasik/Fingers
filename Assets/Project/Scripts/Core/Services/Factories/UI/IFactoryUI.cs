@@ -1,12 +1,12 @@
-using EmpireCafe.UI.Hud;
-using EmpireCafe.UI.Information;
-using EmpireCafe.UI.MainMenu;
+using Fingers.UI.Hud;
+using Fingers.UI.Information;
+using Fingers.UI.MainMenu;
 
-namespace EmpireCafe.Core.Services.Factories.UI
+namespace Fingers.Core.Services.Factories.UI
 {
     public interface IUIFactory : IService
     {
-        public MainMenuHandler CreateMainMenu();
+        public MainMenuHandler CreateMainMenuHandler();
         public InformationView CreateInformation();
         public HudView CreateHUD();
     }

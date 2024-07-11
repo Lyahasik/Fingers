@@ -1,4 +1,4 @@
-namespace EmpireCafe.Core.Services.GameStateMachine.States
+namespace Fingers.Core.Services.GameStateMachine.States
 {
     public interface IState : IOutputState
     {

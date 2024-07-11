@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace EmpireCafe.Gameplay.StaticData
+namespace Fingers.Gameplay.StaticData
 {
     [CreateAssetMenu(fileName = "MoneysData", menuName = "Static data/Moneys")]
     public class MoneysStaticData : ScriptableObject

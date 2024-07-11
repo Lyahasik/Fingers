@@ -1,10 +1,9 @@
 ﻿using System;
+using Fingers.Core.Publish.Services.Ads;
 using UnityEngine;
 using UnityEngine.UI;
 
-using EmpireCafe.Core.Publish.Services.Ads;
-
-namespace EmpireCafe.UI.Core.Buttons
+namespace Fingers.UI.Core.Buttons
 {
     public class ButtonAds : MonoBehaviour
     {

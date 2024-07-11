@@ -1,11 +1,10 @@
 using UnityEngine;
 
-namespace EmpireCafe.Core.Services.StaticData
+namespace Fingers.Core.Services.StaticData
 {
     [CreateAssetMenu(fileName = "StartProgressData", menuName = "Static data/Start progress")]
     public class StartProgressStaticData : ScriptableObject
     {
-        public int money1;
-        public int money2;
+        public int money;
     }
 }

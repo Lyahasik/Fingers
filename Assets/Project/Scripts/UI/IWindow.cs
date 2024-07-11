@@ -1,6 +1,6 @@
-﻿using EmpireCafe.UI.MainMenu;
+﻿using Fingers.UI.MainMenu;
 
-namespace EmpireCafe.UI
+namespace Fingers.UI
 {
     public interface IWindow
     {

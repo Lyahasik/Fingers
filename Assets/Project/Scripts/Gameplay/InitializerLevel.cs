@@ -1,18 +1,18 @@
-﻿using UnityEngine;
+﻿using Fingers.Core.Publish.Services.Ads;
+using Fingers.Core.Publish.Services.Analytics;
+using Fingers.Core.Services;
+using Fingers.Core.Services.Factories.Gameplay;
+using Fingers.Core.Services.Factories.UI;
+using Fingers.Core.Services.Progress;
+using Fingers.Core.Services.StaticData;
+using Fingers.UI.Gameplay;
+using Fingers.UI.Hud;
+using Fingers.UI.Information;
+using Fingers.UI.Information.Services;
+using Fingers.UI.MainMenu;
+using UnityEngine;
 
-using EmpireCafe.Core.Publish.Services.Ads;
-using EmpireCafe.Core.Publish.Services.Analytics;
-using EmpireCafe.Core.Services;
-using EmpireCafe.Core.Services.Factories.Gameplay;
-using EmpireCafe.Core.Services.Factories.UI;
-using EmpireCafe.Core.Services.Progress;
-using EmpireCafe.Core.Services.StaticData;
-using EmpireCafe.UI.Hud;
-using EmpireCafe.UI.Information;
-using EmpireCafe.UI.Information.Services;
-using EmpireCafe.UI.MainMenu;
-
-namespace EmpireCafe.Gameplay
+namespace Fingers.Gameplay
 {
     public class InitializerLevel : MonoBehaviour
     {
@@ -64,12 +64,12 @@ namespace EmpireCafe.Gameplay
         
         private void CreateMainMenu()
         {
-            MainMenuHandler mainMenu = _uiFactory.CreateMainMenu();
-            mainMenu.Construct(
+            MainMenuHandler mainMenuHandler = _uiFactory.CreateMainMenuHandler();
+            mainMenuHandler.Construct(
                 _uiFactory,
                 _processingAdsService,
                 _gameplayServicesContainer.Single<IInformationService>());
-            mainMenu.Initialize();
+            mainMenuHandler.Initialize(_staticDataService, _progressProviderService);
             
             InformationView information = _uiFactory.CreateInformation();
             information.Initialize(_staticDataService, _processingAdsService);
@@ -79,9 +79,9 @@ namespace EmpireCafe.Gameplay
 
         private void CreateGameplay(HudView hudView)
         {
-            Canvas gameplayCanvas = _gameplayFactory.CreateGameplayCanvas();
+            GameplayHandler gameplayHandler = _gameplayFactory.CreateGameplayHandler();
             
-            hudView.Initialize(_staticDataService, _processingAdsService, _progressProviderService);
+            hudView.Initialize();
         }
 
         private HudView CreateHUD()

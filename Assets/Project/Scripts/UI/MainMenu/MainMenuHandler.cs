@@ -1,20 +1,28 @@
 using System.Collections.Generic;
+using Fingers.Core.Publish.Services.Ads;
+using Fingers.Core.Services.Factories.UI;
+using Fingers.Core.Services.Progress;
+using Fingers.Core.Services.StaticData;
+using Fingers.UI.Information.Services;
 using UnityEngine;
 
-using EmpireCafe.Core.Publish.Services.Ads;
-using EmpireCafe.Core.Services.Factories.UI;
-using EmpireCafe.UI.Information.Services;
-
-namespace EmpireCafe.UI.MainMenu
+namespace Fingers.UI.MainMenu
 {
     public class MainMenuHandler : MonoBehaviour
     {
+        [SerializeField] private MenuView menuView;
+        
         private IUIFactory _uiFactory;
         private IProcessingAdsService _processingAdsService;
         private IInformationService _informationService;
 
         private List<IWindow> _windows;
         private WindowType _currentWindowType;
+
+        private void Awake()
+        {
+            GetComponent<Canvas>().worldCamera = Camera.main;
+        }
 
         public void Construct(IUIFactory uiFactory,
             IProcessingAdsService processingAdsService,
@@ -25,9 +33,13 @@ namespace EmpireCafe.UI.MainMenu
             _informationService = informationService;
         }
 
-        public void Initialize()
+        public void Initialize(IStaticDataService staticDataService, IProgressProviderService progressProviderService)
         {
             _windows = new List<IWindow>();
+            
+            _windows.Add(menuView);
+            
+            menuView.Initialize(staticDataService, progressProviderService);
         }
 
         public void ActivateWindow(int idWindow)

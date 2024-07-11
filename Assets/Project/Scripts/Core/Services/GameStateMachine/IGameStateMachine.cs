@@ -1,6 +1,6 @@
-using EmpireCafe.Core.Services.GameStateMachine.States;
+using Fingers.Core.Services.GameStateMachine.States;
 
-namespace EmpireCafe.Core.Services.GameStateMachine
+namespace Fingers.Core.Services.GameStateMachine
 {
     public interface IGameStateMachine : IService
     {

@@ -1,6 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 
-namespace EmpireCafe.Core.Publish.Web.Yandex
+namespace Fingers.Core.Publish.Web.Yandex
 {
     public class YandexAnalyticsModule : AnalyticsModule
     {

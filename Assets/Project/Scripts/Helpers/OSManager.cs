@@ -1,4 +1,4 @@
-namespace EmpireCafe.Helpers
+namespace Fingers.Helpers
 {
     public static class OSManager
     {

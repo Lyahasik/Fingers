@@ -1,22 +1,21 @@
+using Fingers.Core.Publish;
+using Fingers.Core.Publish.Services.Ads;
+using Fingers.Core.Publish.Services.Analytics;
+using Fingers.Core.Services;
+using Fingers.Core.Services.Factories.Gameplay;
+using Fingers.Core.Services.Factories.UI;
+using Fingers.Core.Services.GameStateMachine;
+using Fingers.Core.Services.GameStateMachine.States;
+using Fingers.Core.Services.Progress;
+using Fingers.Core.Services.Scene;
+using Fingers.Core.Services.StaticData;
+using Fingers.Core.Update;
+using Fingers.Gameplay.Wallet.Services;
+using Fingers.UI.Loading;
 using Unity.VisualScripting;
 using UnityEngine;
 
-using EmpireCafe.Core.Publish;
-using EmpireCafe.Core.Publish.Services.Ads;
-using EmpireCafe.Core.Publish.Services.Analytics;
-using EmpireCafe.Core.Services;
-using EmpireCafe.Core.Services.Factories.Gameplay;
-using EmpireCafe.Core.Services.Factories.UI;
-using EmpireCafe.Core.Services.GameStateMachine;
-using EmpireCafe.Core.Services.GameStateMachine.States;
-using EmpireCafe.Core.Services.Progress;
-using EmpireCafe.Core.Services.Scene;
-using EmpireCafe.Core.Services.StaticData;
-using EmpireCafe.Core.Update;
-using EmpireCafe.Gameplay.Wallet.Services;
-using EmpireCafe.UI.Loading;
-
-namespace EmpireCafe.Core.Initialize
+namespace Fingers.Core.Initialize
 {
     public class InitializerGame : MonoBehaviour
     {

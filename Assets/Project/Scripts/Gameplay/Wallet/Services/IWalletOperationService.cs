@@ -1,11 +1,10 @@
-﻿using EmpireCafe.Core.Services;
+﻿using Fingers.Core.Services;
 
-namespace EmpireCafe.Gameplay.Wallet.Services
+namespace Fingers.Gameplay.Wallet.Services
 {
     public interface IWalletOperationService : IService
     {
-        public int Money1 { get; }
-        public int Money2 { get; }
+        public int Money { get; }
         
         public void Initialize();
         public void AddMoney(in CurrencyType currencyType, in int value);

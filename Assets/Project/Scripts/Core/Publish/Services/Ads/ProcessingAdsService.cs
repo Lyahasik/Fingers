@@ -1,11 +1,10 @@
 ﻿using System;
+using Fingers.Core.Publish.Services.Analytics;
+using Fingers.Core.Publish.Web.Yandex;
+using Fingers.Helpers;
 using UnityEngine;
 
-using EmpireCafe.Core.Publish.Services.Analytics;
-using EmpireCafe.Core.Publish.Web.Yandex;
-using EmpireCafe.Helpers;
-
-namespace EmpireCafe.Core.Publish.Services.Ads
+namespace Fingers.Core.Publish.Services.Ads
 {
     public class ProcessingAdsService : IProcessingAdsService
     {

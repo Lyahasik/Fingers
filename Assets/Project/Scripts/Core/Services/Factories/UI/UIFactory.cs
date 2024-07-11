@@ -1,9 +1,9 @@
-using EmpireCafe.Core.Services.StaticData;
-using EmpireCafe.UI.Hud;
-using EmpireCafe.UI.Information;
-using EmpireCafe.UI.MainMenu;
+using Fingers.Core.Services.StaticData;
+using Fingers.UI.Hud;
+using Fingers.UI.Information;
+using Fingers.UI.MainMenu;
 
-namespace EmpireCafe.Core.Services.Factories.UI
+namespace Fingers.Core.Services.Factories.UI
 {
     public class UIFactory : Factory, IUIFactory
     {
@@ -14,7 +14,7 @@ namespace EmpireCafe.Core.Services.Factories.UI
             this.staticDataService = staticDataService;
         }
 
-        public MainMenuHandler CreateMainMenu() => 
+        public MainMenuHandler CreateMainMenuHandler() => 
             PrefabInstantiate(staticDataService.UI.mainMenuHandlerPrefab);
 
         public InformationView CreateInformation() => 

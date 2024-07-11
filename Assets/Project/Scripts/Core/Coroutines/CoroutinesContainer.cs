@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace EmpireCafe.Core.Coroutines
+namespace Fingers.Core.Coroutines
 {
     public class CoroutinesContainer : MonoBehaviour, ICoroutineRunnerService {}
 }

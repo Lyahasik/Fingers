@@ -1,6 +1,6 @@
-﻿using EmpireCafe.Core.Services;
+﻿using Fingers.Core.Services;
 
-namespace EmpireCafe.UI.Information.Services
+namespace Fingers.UI.Information.Services
 {
     public interface IInformationService : IService
     {

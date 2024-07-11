@@ -1,6 +1,6 @@
-using EmpireCafe.Core.Services;
+using Fingers.Core.Services;
 
-namespace EmpireCafe.Core.Publish.Services.Analytics
+namespace Fingers.Core.Publish.Services.Analytics
 {
     public interface IProcessingAnalyticsService : IService
     {

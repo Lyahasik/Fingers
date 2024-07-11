@@ -3,7 +3,7 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace EmpireCafe.UI
+namespace Fingers.UI
 {
     [RequireComponent(typeof(Image))]
     public class ClickArea : MonoBehaviour, IPointerDownHandler

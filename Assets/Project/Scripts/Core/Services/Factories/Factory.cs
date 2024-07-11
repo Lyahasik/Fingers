@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace EmpireCafe.Core.Services.Factories
+namespace Fingers.Core.Services.Factories
 {
     public abstract class Factory
     {

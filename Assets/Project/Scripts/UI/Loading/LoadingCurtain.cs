@@ -1,10 +1,9 @@
 using System.Collections;
+using Fingers.Core.Coroutines;
+using Fingers.UI.StaticData;
 using UnityEngine;
 
-using EmpireCafe.Core.Coroutines;
-using EmpireCafe.UI.StaticData;
-
-namespace EmpireCafe.UI.Loading
+namespace Fingers.UI.Loading
 {
     public class LoadingCurtain : MonoBehaviour
     {
@@ -23,6 +22,8 @@ namespace EmpireCafe.UI.Loading
         private void Awake()
         {
             DontDestroyOnLoad(this);
+            
+            GetComponent<Canvas>().worldCamera = Camera.main;
         }
 
         public void Show()

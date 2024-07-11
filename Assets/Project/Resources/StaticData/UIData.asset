@@ -16,5 +16,5 @@ MonoBehaviour:
   curtainDissolutionDelay: 0.03
   mainMenuHandlerPrefab: {fileID: -5197722408872710788, guid: d262041fa7952ab40875775f0f7bd5e9, type: 3}
   informationViewPrefab: {fileID: -8636701203838908075, guid: 23d1f2f5c43463544b2f579220f8dd12, type: 3}
-  gameplayCanvas: {fileID: 8550929980087478797, guid: 488c3a2932aea0f4c8ffc4544eb85a2d, type: 3}
+  gameplayHandler: {fileID: 434094425614048795, guid: 488c3a2932aea0f4c8ffc4544eb85a2d, type: 3}
   hudViewPrefab: {fileID: 8248891911705102734, guid: 073bd9816efa23744b122ab9897901ee, type: 3}

@@ -1,16 +1,12 @@
-namespace EmpireCafe.Gameplay.Wallet
+namespace Fingers.Gameplay.Wallet
 {
     public class WalletData
     {
-        public int Money1;
-        public int Money2;
+        public int Money;
 
-        public WalletData() {}
-
-        public WalletData(int money1, int money2)
+        public WalletData(int money)
         {
-            Money1 = money1;
-            Money2 = money2;
+            Money = money;
         }
     }
 }

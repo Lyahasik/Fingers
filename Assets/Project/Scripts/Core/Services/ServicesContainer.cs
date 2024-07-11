@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace EmpireCafe.Core.Services
+namespace Fingers.Core.Services
 {
     public class ServicesContainer
     {

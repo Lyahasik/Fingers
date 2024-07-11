@@ -1,9 +1,9 @@
-using UnityEngine;
+using Fingers.UI.Gameplay;
 
-namespace EmpireCafe.Core.Services.Factories.Gameplay
+namespace Fingers.Core.Services.Factories.Gameplay
 {
     public interface IGameplayFactory : IService
     {
-        public Canvas CreateGameplayCanvas();
+        public GameplayHandler CreateGameplayHandler();
     }
 }

@@ -1,6 +1,6 @@
-using EmpireCafe.Core.Progress;
+using Fingers.Core.Progress;
 
-namespace EmpireCafe.Core.Services.Progress
+namespace Fingers.Core.Services.Progress
 {
     public interface IReadingProgress
     {

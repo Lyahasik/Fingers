@@ -1,4 +1,4 @@
-namespace EmpireCafe.Core.Services
+namespace Fingers.Core.Services
 {
     public interface IService {}
 }

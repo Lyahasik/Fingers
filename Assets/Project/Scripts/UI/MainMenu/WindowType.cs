@@ -1,4 +1,4 @@
-﻿namespace EmpireCafe.UI.MainMenu
+﻿namespace Fingers.UI.MainMenu
 {
     public enum WindowType
     {

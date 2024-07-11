@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace EmpireCafe.Core.Services.GameStateMachine.States
+namespace Fingers.Core.Services.GameStateMachine.States
 {
     public class GameplayState : IState
     {

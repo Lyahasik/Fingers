@@ -1,8 +1,7 @@
-using UnityEngine;
+using Fingers.Core.Services.StaticData;
+using Fingers.UI.Gameplay;
 
-using EmpireCafe.Core.Services.StaticData;
-
-namespace EmpireCafe.Core.Services.Factories.Gameplay
+namespace Fingers.Core.Services.Factories.Gameplay
 {
     public class GameplayFactory : Factory, IGameplayFactory
     {
@@ -13,7 +12,7 @@ namespace EmpireCafe.Core.Services.Factories.Gameplay
             this.staticDataService = staticDataService;
         }
 
-        public Canvas CreateGameplayCanvas() => 
-            PrefabInstantiate(staticDataService.UI.gameplayCanvas);
+        public GameplayHandler CreateGameplayHandler() => 
+            PrefabInstantiate(staticDataService.UI.gameplayHandler);
     }
 }
