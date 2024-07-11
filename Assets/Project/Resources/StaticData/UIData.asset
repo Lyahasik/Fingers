@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3763b3dc1f9e4062a19e4ce45b28e81b, type: 3}
+  m_Name: UIData
+  m_EditorClassIdentifier: 
+  curtainDissolutionStep: 0.1
+  curtainDissolutionDelay: 0.03
+  mainMenuHandlerPrefab: {fileID: -5197722408872710788, guid: d262041fa7952ab40875775f0f7bd5e9, type: 3}
+  informationViewPrefab: {fileID: -8636701203838908075, guid: 23d1f2f5c43463544b2f579220f8dd12, type: 3}
+  gameplayCanvas: {fileID: 8550929980087478797, guid: 488c3a2932aea0f4c8ffc4544eb85a2d, type: 3}
+  hudViewPrefab: {fileID: 8248891911705102734, guid: 073bd9816efa23744b122ab9897901ee, type: 3}
