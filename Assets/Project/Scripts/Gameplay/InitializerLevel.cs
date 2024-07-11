@@ -3,6 +3,7 @@ using Fingers.Core.Publish.Services.Analytics;
 using Fingers.Core.Services;
 using Fingers.Core.Services.Factories.Gameplay;
 using Fingers.Core.Services.Factories.UI;
+using Fingers.Core.Services.Localization;
 using Fingers.Core.Services.Progress;
 using Fingers.Core.Services.StaticData;
 using Fingers.UI.Gameplay;
@@ -17,6 +18,7 @@ namespace Fingers.Gameplay
     public class InitializerLevel : MonoBehaviour
     {
         private IStaticDataService _staticDataService;
+        private ILocalizationService _localizationService;
         private IProgressProviderService _progressProviderService;
         private IProcessingAdsService _processingAdsService;
         private IProcessingAnalyticsService _processingAnalyticsService;
@@ -26,6 +28,7 @@ namespace Fingers.Gameplay
         private ServicesContainer _gameplayServicesContainer;
 
         public void Construct(IStaticDataService staticDataService,
+            ILocalizationService localizationService,
             IProgressProviderService progressProviderService,
             IProcessingAdsService processingAdsService,
             IProcessingAnalyticsService processingAnalyticsService,
@@ -33,6 +36,7 @@ namespace Fingers.Gameplay
             IUIFactory uiFactory)
         {
             _staticDataService = staticDataService;
+            _localizationService = localizationService;
             _progressProviderService = progressProviderService;
             _processingAdsService = processingAdsService;
             _processingAnalyticsService = processingAnalyticsService;
@@ -66,10 +70,9 @@ namespace Fingers.Gameplay
         {
             MainMenuHandler mainMenuHandler = _uiFactory.CreateMainMenuHandler();
             mainMenuHandler.Construct(
-                _uiFactory,
                 _processingAdsService,
                 _gameplayServicesContainer.Single<IInformationService>());
-            mainMenuHandler.Initialize(_staticDataService, _progressProviderService);
+            mainMenuHandler.Initialize(_staticDataService, _localizationService, _progressProviderService);
             
             InformationView information = _uiFactory.CreateInformation();
             information.Initialize(_staticDataService, _processingAdsService);

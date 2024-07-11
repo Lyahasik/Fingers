@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Core.Services.Progress.Editor
+namespace Fingers.Core.Services.Progress.Editor
 {
     public class ProgressProviderServiceEditor
     {

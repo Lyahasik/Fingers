@@ -156,7 +156,15 @@ namespace Fingers.Core.Services.Progress
         public void WasChange()
         {
             _isWasChange = true;
-        }private void RegularSave()
+        }
+        
+        public void SetLocale(int localeId)
+        {
+            _progressData.LocaleId = localeId;
+            SaveProgress();
+        }
+        
+        private void RegularSave()
         {
             _progressData.TimeGame += Time.deltaTime;
             _waitingSavingTime -= Time.deltaTime;

@@ -1,3 +1,4 @@
+using System.Collections;
 using Fingers.Core.Publish;
 using Fingers.Core.Publish.Services.Ads;
 using Fingers.Core.Publish.Services.Analytics;
@@ -6,6 +7,7 @@ using Fingers.Core.Services.Factories.Gameplay;
 using Fingers.Core.Services.Factories.UI;
 using Fingers.Core.Services.GameStateMachine;
 using Fingers.Core.Services.GameStateMachine.States;
+using Fingers.Core.Services.Localization;
 using Fingers.Core.Services.Progress;
 using Fingers.Core.Services.Scene;
 using Fingers.Core.Services.StaticData;
@@ -24,17 +26,22 @@ namespace Fingers.Core.Initialize
         [SerializeField] private UpdateHandler updateHandlerPrefab;
 
         private ServicesContainer _coreServicesContainer;
-
-        private void Start()
+        
+        private IEnumerator Start()
         {
-            RegisterServices();
+            var localizationService = new LocalizationService();
             
+            yield return localizationService.Initialize();
+            
+            RegisterServices(localizationService);
             _coreServicesContainer.Single<IGameStateMachine>().Enter<LoadProgressState>();
         }
 
-        private void RegisterServices()
+        private void RegisterServices(LocalizationService localizationService)
         {
             _coreServicesContainer = new ServicesContainer();
+            _coreServicesContainer.Register<ILocalizationService>(localizationService);
+            
             var gameStateMachine = new GameStateMachine();
             UpdateHandler updateHandler = CreateUpdateHandler();
 
@@ -60,6 +67,7 @@ namespace Fingers.Core.Initialize
             _coreServicesContainer.Register<ISceneProviderService>(
                 new SceneProviderService(
                     gameStateMachine,
+                    _coreServicesContainer.Single<ILocalizationService>(),
                     updateHandler,
                     _coreServicesContainer.Single<IUIFactory>(),
                     _coreServicesContainer.Single<IGameplayFactory>(),

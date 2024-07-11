@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Fingers.Core.Publish.Services.Ads;
 using Fingers.Core.Services.Factories.UI;
+using Fingers.Core.Services.Localization;
 using Fingers.Core.Services.Progress;
 using Fingers.Core.Services.StaticData;
 using Fingers.UI.Information.Services;
@@ -12,7 +13,6 @@ namespace Fingers.UI.MainMenu
     {
         [SerializeField] private MenuView menuView;
         
-        private IUIFactory _uiFactory;
         private IProcessingAdsService _processingAdsService;
         private IInformationService _informationService;
 
@@ -24,22 +24,22 @@ namespace Fingers.UI.MainMenu
             GetComponent<Canvas>().worldCamera = Camera.main;
         }
 
-        public void Construct(IUIFactory uiFactory,
-            IProcessingAdsService processingAdsService,
+        public void Construct(IProcessingAdsService processingAdsService,
             IInformationService informationService)
         {
-            _uiFactory = uiFactory;
             _processingAdsService = processingAdsService;
             _informationService = informationService;
         }
 
-        public void Initialize(IStaticDataService staticDataService, IProgressProviderService progressProviderService)
+        public void Initialize(IStaticDataService staticDataService,
+            ILocalizationService localizationService,
+            IProgressProviderService progressProviderService)
         {
             _windows = new List<IWindow>();
             
             _windows.Add(menuView);
             
-            menuView.Initialize(staticDataService, progressProviderService);
+            menuView.Initialize(staticDataService, localizationService, progressProviderService);
         }
 
         public void ActivateWindow(int idWindow)

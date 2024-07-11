@@ -6,6 +6,7 @@ using Fingers.Core.Services.Factories.Gameplay;
 using Fingers.Core.Services.Factories.UI;
 using Fingers.Core.Services.GameStateMachine;
 using Fingers.Core.Services.GameStateMachine.States;
+using Fingers.Core.Services.Localization;
 using Fingers.Core.Services.Progress;
 using Fingers.Core.Services.StaticData;
 using Fingers.Core.Update;
@@ -20,6 +21,7 @@ namespace Fingers.Core.Services.Scene
     {
         private readonly IGameStateMachine gameStateMachine;
         private readonly IStaticDataService staticDataService;
+        private readonly ILocalizationService localizationService;
         private readonly UpdateHandler updateHandler;
         private readonly IUIFactory uiFactory;
         private readonly IGameplayFactory gameplayFactory;
@@ -34,6 +36,7 @@ namespace Fingers.Core.Services.Scene
         private int _currentLevelId;
 
         public SceneProviderService(IGameStateMachine gameStateMachine,
+            ILocalizationService localizationService,
             UpdateHandler updateHandler,
             IUIFactory uiFactory,
             IGameplayFactory gameplayFactory,
@@ -44,6 +47,7 @@ namespace Fingers.Core.Services.Scene
             IProgressProviderService progressProviderService)
         {
             this.gameStateMachine = gameStateMachine;
+            this.localizationService = localizationService;
             this.updateHandler = updateHandler;
             this.uiFactory = uiFactory;
             this.gameplayFactory = gameplayFactory;
@@ -80,6 +84,7 @@ namespace Fingers.Core.Services.Scene
             InitializerLevel initializerLevel = new GameObject().AddComponent<InitializerLevel>();
             initializerLevel.name = nameof(InitializerLevel);
             initializerLevel.Construct(staticDataService,
+                localizationService,
                 progressProviderService,
                 processingAdsService,
                 processingAnalyticsService,

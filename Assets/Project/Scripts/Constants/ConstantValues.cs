@@ -11,6 +11,11 @@
 
         public const string KEY_LOCAL_PROGRESS = "LocalProgress";
 
+        public const string LOCALE_MAIN_TABLE = "MainLocale";
+        public const string KEY_LOCALE_RECORD = "@Record";
+        public const string KEY_LOCALE_NEW_RECORD = "@NewRecord";
+        public const string KEY_LOCALE_DAY_RECORD = "@DayRecord";
+
         public const int ERROR_ID = -1;
         public const int EMPTY = 0;
     }

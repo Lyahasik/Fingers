@@ -15,5 +15,6 @@ namespace Fingers.Core.Services.Progress
         public void Unregister(IReadingProgress progressReader);
         public void Unregister(IWritingProgress progressWriter);
         public void WasChange();
+        public void SetLocale(int localeId);
     }
 }

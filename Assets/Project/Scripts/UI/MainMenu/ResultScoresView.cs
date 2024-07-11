@@ -1,9 +1,12 @@
 using System.Collections.Generic;
-using Fingers.Core.Progress;
-using Fingers.Core.Services.Progress;
-using Fingers.Core.Services.StaticData;
+using Fingers.Constants;
 using TMPro;
 using UnityEngine;
+
+using Fingers.Core.Progress;
+using Fingers.Core.Services.Localization;
+using Fingers.Core.Services.Progress;
+using Fingers.Core.Services.StaticData;
 
 namespace Fingers.UI.MainMenu
 {
@@ -14,10 +17,12 @@ namespace Fingers.UI.MainMenu
         [SerializeField] private List<GameObject> medals;
     
         private IStaticDataService _staticDataService;
+        private ILocalizationService _localizationService;
 
-        public void Construct(IStaticDataService staticDataService)
+        public void Construct(IStaticDataService staticDataService, ILocalizationService localizationService)
         {
             _staticDataService = staticDataService;
+            _localizationService = localizationService;
         }
 
         public void Initialize(IProgressProviderService progressProviderService)
@@ -34,7 +39,7 @@ namespace Fingers.UI.MainMenu
 
         public void LoadProgress(ProgressData progress)
         {
-            descriptionValue.text = "рекорд " + progress.ScoresData.RecordNumber;
+            descriptionValue.text = $"{_localizationService.LocaleMain(ConstantValues.KEY_LOCALE_RECORD)} {progress.ScoresData.RecordNumber}";
         }
 
         public void UpdateProgress(ProgressData progress)
@@ -48,15 +53,15 @@ namespace Fingers.UI.MainMenu
 
             if (lastNumber > recordNumber)
             {
-                descriptionValue.text = "новый рекорд";
+                descriptionValue.text = _localizationService.LocaleMain(ConstantValues.KEY_LOCALE_NEW_RECORD);
             }
             else if (lastNumber > dayRecordNumber)
             {
-                descriptionValue.text = "рекорд дня";
+                descriptionValue.text = _localizationService.LocaleMain(ConstantValues.KEY_LOCALE_DAY_RECORD);
             }
             else
             {
-                descriptionValue.text = "рекорд " + recordNumber;
+                descriptionValue.text = $"{_localizationService.LocaleMain(ConstantValues.KEY_LOCALE_RECORD)} {recordNumber}";
             }
 
             UpdateMedalIcon(lastNumber);
@@ -66,7 +71,7 @@ namespace Fingers.UI.MainMenu
         {
             medals.ForEach(data => data.SetActive(false));
         
-            for (var i = _staticDataService.Progress.medalsValue.Count; i >= 0; i--)
+            for (var i = _staticDataService.Progress.medalsValue.Count - 1; i >= 0; i--)
             {
                 if (lastNumber >= _staticDataService.Progress.medalsValue[i])
                 {
