@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using Fingers.Constants;
@@ -95,6 +96,8 @@ namespace Fingers.Core.Services.Progress
                 _progressData = localProgressData > serverProgressData ? localProgressData : serverProgressData;
             }
             _progressData ??= CreateNewProgress();
+
+            ResetDayProgress();
             
             foreach (IReadingProgress progressReader in _progressReaders)
                 progressReader.LoadProgress(_progressData);
@@ -157,13 +160,23 @@ namespace Fingers.Core.Services.Progress
         {
             _isWasChange = true;
         }
-        
+
         public void SetLocale(int localeId)
         {
             _progressData.LocaleId = localeId;
             SaveProgress();
         }
-        
+
+        private void ResetDayProgress()
+        {
+            int currentDay = DateTime.Now.DayOfYear;
+
+            if (_progressData.LastDayPlaying != currentDay) 
+                _progressData.ScoresData.DayRecordNumber = 0;
+
+            _progressData.LastDayPlaying = currentDay;
+        }
+
         private void RegularSave()
         {
             _progressData.TimeGame += Time.deltaTime;

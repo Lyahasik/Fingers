@@ -7,6 +7,7 @@ namespace Fingers.Core.Progress
     {
         public float TimeGame;
         public int LocaleId;
+        public int LastDayPlaying;
 
         public WalletData Wallet;
         public ScoresData ScoresData;

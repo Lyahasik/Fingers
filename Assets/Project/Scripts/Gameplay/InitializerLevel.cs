@@ -50,8 +50,8 @@ namespace Fingers.Gameplay
             
             HudView hudView = CreateHUD();
 
-            CreateMainMenu();
-            CreateGameplay(hudView);
+            MainMenuHandler mainMenuHandler = CreateMainMenu();
+            CreateGameplay(mainMenuHandler, hudView);
         }
 
         private void OnDestroy()
@@ -66,7 +66,7 @@ namespace Fingers.Gameplay
             _gameplayServicesContainer.Register<IInformationService>(new InformationService());
         }
         
-        private void CreateMainMenu()
+        private MainMenuHandler CreateMainMenu()
         {
             MainMenuHandler mainMenuHandler = _uiFactory.CreateMainMenuHandler();
             mainMenuHandler.Construct(
@@ -78,11 +78,15 @@ namespace Fingers.Gameplay
             information.Initialize(_staticDataService, _processingAdsService);
             
             _gameplayServicesContainer.Single<IInformationService>().Initialize(information);
+
+            return mainMenuHandler;
         }
 
-        private void CreateGameplay(HudView hudView)
+        private void CreateGameplay(MainMenuHandler mainMenuHandler, HudView hudView)
         {
             GameplayHandler gameplayHandler = _gameplayFactory.CreateGameplayHandler();
+            gameplayHandler.Construct(_progressProviderService, mainMenuHandler, hudView);
+            gameplayHandler.Initialize(_staticDataService);
             
             hudView.Initialize();
         }

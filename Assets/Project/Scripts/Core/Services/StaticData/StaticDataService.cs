@@ -11,12 +11,14 @@ namespace Fingers.Core.Services.StaticData
         private StartProgressStaticData _startProgress; 
         private UIStaticData _ui;
         private ProgressStaticData _progress;
+        private GameplayStaticData _gameplay;
 
         private MoneysStaticData _moneys;
 
         public StartProgressStaticData StartProgress => _startProgress;
         public UIStaticData UI => _ui;
         public ProgressStaticData Progress => _progress;
+        public GameplayStaticData Gameplay => _gameplay;
 
         public StaticDataService()
         {
@@ -33,6 +35,9 @@ namespace Fingers.Core.Services.StaticData
             
             _progress = Resources
                 .Load<ProgressStaticData>(ConstantPaths.PROGRESS_DATA_PATH);
+            
+            _gameplay = Resources
+                .Load<GameplayStaticData>(ConstantPaths.GAMEPLAY_DATA_PATH);
             
             _moneys = Resources
                 .Load<MoneysStaticData>(ConstantPaths.MONEYS_DATA_PATH);

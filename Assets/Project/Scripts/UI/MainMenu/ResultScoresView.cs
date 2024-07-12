@@ -39,7 +39,9 @@ namespace Fingers.UI.MainMenu
 
         public void LoadProgress(ProgressData progress)
         {
-            descriptionValue.text = $"{_localizationService.LocaleMain(ConstantValues.KEY_LOCALE_RECORD)} {progress.ScoresData.RecordNumber}";
+            descriptionValue.text = progress.ScoresData.RecordNumber > 0
+                ? $"{_localizationService.LocaleMain(ConstantValues.KEY_LOCALE_RECORD)} {progress.ScoresData.RecordNumber}"
+                : string.Empty;
         }
 
         public void UpdateProgress(ProgressData progress)
@@ -51,17 +53,22 @@ namespace Fingers.UI.MainMenu
         {
             scoreValue.text = lastNumber.ToString();
 
-            if (lastNumber > recordNumber)
+            if (lastNumber == recordNumber)
             {
                 descriptionValue.text = _localizationService.LocaleMain(ConstantValues.KEY_LOCALE_NEW_RECORD);
             }
-            else if (lastNumber > dayRecordNumber)
+            else if (lastNumber == dayRecordNumber)
             {
-                descriptionValue.text = _localizationService.LocaleMain(ConstantValues.KEY_LOCALE_DAY_RECORD);
+                descriptionValue.text = _localizationService.LocaleMain(ConstantValues.KEY_LOCALE_NEW_DAY_RECORD);
             }
             else
             {
-                descriptionValue.text = $"{_localizationService.LocaleMain(ConstantValues.KEY_LOCALE_RECORD)} {recordNumber}";
+                if (dayRecordNumber > 0)
+                    descriptionValue.text = Random.Range(0,2) == 0 
+                        ? $"{_localizationService.LocaleMain(ConstantValues.KEY_LOCALE_DAY_RECORD)} {dayRecordNumber}" 
+                        : $"{_localizationService.LocaleMain(ConstantValues.KEY_LOCALE_RECORD)} {recordNumber}";
+                else
+                    descriptionValue.text = $"{_localizationService.LocaleMain(ConstantValues.KEY_LOCALE_RECORD)} {recordNumber}";
             }
 
             UpdateMedalIcon(lastNumber);

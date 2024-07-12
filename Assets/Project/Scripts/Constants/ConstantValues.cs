@@ -15,6 +15,7 @@
         public const string KEY_LOCALE_RECORD = "@Record";
         public const string KEY_LOCALE_NEW_RECORD = "@NewRecord";
         public const string KEY_LOCALE_DAY_RECORD = "@DayRecord";
+        public const string KEY_LOCALE_NEW_DAY_RECORD = "@NewDayRecord";
 
         public const int ERROR_ID = -1;
         public const int EMPTY = 0;

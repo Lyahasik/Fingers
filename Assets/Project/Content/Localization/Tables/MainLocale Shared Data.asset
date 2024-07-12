@@ -31,6 +31,10 @@ MonoBehaviour:
     m_Key: '@DayRecord'
     m_Metadata:
       m_Items: []
+  - m_Id: 26381797435768832
+    m_Key: '@NewDayRecord'
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

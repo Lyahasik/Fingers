@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Fingers.Core.Publish.Services.Ads;
-using Fingers.Core.Services.Factories.UI;
 using Fingers.Core.Services.Localization;
 using Fingers.Core.Services.Progress;
 using Fingers.Core.Services.StaticData;
@@ -40,6 +39,16 @@ namespace Fingers.UI.MainMenu
             _windows.Add(menuView);
             
             menuView.Initialize(staticDataService, localizationService, progressProviderService);
+        }
+
+        public void ActivateMenu()
+        {
+            gameObject.SetActive(true);
+        }
+
+        public void DeactivateMenu() 
+        {
+            gameObject.SetActive(false);
         }
 
         public void ActivateWindow(int idWindow)
