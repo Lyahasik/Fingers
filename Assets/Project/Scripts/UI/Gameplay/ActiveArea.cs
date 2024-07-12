@@ -13,14 +13,6 @@ namespace Fingers.UI.Gameplay
         private GameplayHandler _gameplayHandler;
         private GameplayArea _gameplayArea;
 
-        private bool _isDragActive;
-        private float _startGameTime;
-
-        private void Update()
-        {
-            TryStartGame();
-        }
-
         public void Construct(IStaticDataService staticDataService,
             MainMenuHandler mainMenuHandler,
             GameplayHandler gameplayHandler,
@@ -32,28 +24,10 @@ namespace Fingers.UI.Gameplay
             _gameplayArea = gameplayArea;
         }
 
-        private void TryStartGame()
-        {
-            if (_startGameTime == 0f
-                || _gameplayHandler.IsGameActive
-                || !_isDragActive
-                || _startGameTime > Time.time)
-                return;
-            
-            _gameplayHandler.StartGame();
-        }
-
         public void OnPointerDown(PointerEventData eventData)
         {
-            _isDragActive = true;
-
-            if (_startGameTime == 0f)
-            {
-                _gameplayArea.UpdateFingerPosition(eventData.position);
-                
-                _startGameTime = Time.time + _staticDataService.Gameplay.delayToStartGame;
-                _mainMenuHandler.DeactivateMenu();
-            }
+            _gameplayArea.UpdateFingerPosition(eventData.position);
+            _mainMenuHandler.DeactivateMenu();
         }
 
         public void OnDrag(PointerEventData eventData)
@@ -63,13 +37,7 @@ namespace Fingers.UI.Gameplay
 
         public void OnPointerUp(PointerEventData eventData)
         {
-            _isDragActive = false;
-
-            if (_startGameTime <= Time.time)
-            {
-                _gameplayHandler.EndGame();
-                _startGameTime = 0f;
-            }
+            _gameplayHandler.EndGame();
         }
     }
 }

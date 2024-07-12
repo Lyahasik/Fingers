@@ -1,8 +1,10 @@
 using Fingers.Core.Services.Localization;
 using Fingers.Core.Services.Progress;
 using Fingers.Core.Services.StaticData;
+using Fingers.UI.Gameplay;
 using Fingers.UI.Hud;
 using Fingers.UI.Localization;
+using MoreMountains.Feedbacks;
 using UnityEngine;
 
 namespace Fingers.UI.MainMenu
@@ -17,6 +19,17 @@ namespace Fingers.UI.MainMenu
 
         [SerializeField] private ResultScoresView resultScoresView;
         [SerializeField] private GameObject promptStartGame;
+        
+        [Space]
+        [SerializeField] private MMF_Player feedbackStartGame;
+        [SerializeField] private MMF_Player feedbackEndGame;
+        
+        private GameplayHandler _gameplayHandler;
+
+        public GameplayHandler GameplayHandler
+        {
+            set => _gameplayHandler = value;
+        }
 
         public void Initialize(IStaticDataService staticDataService,
             ILocalizationService localizationService,
@@ -41,6 +54,21 @@ namespace Fingers.UI.MainMenu
         public void ActivationUpdate(WindowType type)
         {
             gameObject.SetActive(type == windowType);
+        }
+
+        public void DeactivateMenu()
+        {
+            feedbackStartGame.PlayFeedbacks();
+        }
+
+        public void StartGame()
+        {
+            _gameplayHandler.StartGame();
+        }
+
+        public void EndGame()
+        {
+            feedbackEndGame.PlayFeedbacks();
         }
     }
 }

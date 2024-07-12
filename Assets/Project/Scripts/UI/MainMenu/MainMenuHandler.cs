@@ -3,6 +3,7 @@ using Fingers.Core.Publish.Services.Ads;
 using Fingers.Core.Services.Localization;
 using Fingers.Core.Services.Progress;
 using Fingers.Core.Services.StaticData;
+using Fingers.UI.Gameplay;
 using Fingers.UI.Information.Services;
 using UnityEngine;
 
@@ -11,7 +12,7 @@ namespace Fingers.UI.MainMenu
     public class MainMenuHandler : MonoBehaviour
     {
         [SerializeField] private MenuView menuView;
-        
+
         private IProcessingAdsService _processingAdsService;
         private IInformationService _informationService;
 
@@ -43,12 +44,12 @@ namespace Fingers.UI.MainMenu
 
         public void ActivateMenu()
         {
-            gameObject.SetActive(true);
+            menuView.EndGame();
         }
 
-        public void DeactivateMenu() 
+        public void DeactivateMenu()
         {
-            gameObject.SetActive(false);
+            menuView.DeactivateMenu();
         }
 
         public void ActivateWindow(int idWindow)
@@ -59,6 +60,11 @@ namespace Fingers.UI.MainMenu
                 window.ActivationUpdate(_currentWindowType);
             
             _processingAdsService.ShowAdsInterstitial();
+        }
+
+        public void SetGameplayHandler(GameplayHandler gameplayHandler)
+        {
+            menuView.GameplayHandler = gameplayHandler;
         }
     }
 }

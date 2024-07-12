@@ -87,6 +87,8 @@ namespace Fingers.Gameplay
             GameplayHandler gameplayHandler = _gameplayFactory.CreateGameplayHandler();
             gameplayHandler.Construct(_progressProviderService, mainMenuHandler, hudView);
             gameplayHandler.Initialize(_staticDataService);
+
+            mainMenuHandler.SetGameplayHandler(gameplayHandler);
             
             hudView.Initialize();
         }
