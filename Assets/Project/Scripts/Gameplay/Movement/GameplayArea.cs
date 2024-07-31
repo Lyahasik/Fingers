@@ -1,7 +1,8 @@
+using UnityEngine;
+
 using Fingers.Core.Services.StaticData;
 using Fingers.Gameplay.Player;
 using Fingers.UI.Gameplay;
-using UnityEngine;
 
 namespace Fingers.Gameplay.Movement
 {
@@ -12,6 +13,7 @@ namespace Fingers.Gameplay.Movement
         
         private IStaticDataService _staticDataService;
         private GameplayHandler _gameplayHandler;
+        private EnemiesArea _enemiesArea;
         
         private Vector3 _startPosition;
 
@@ -22,10 +24,13 @@ namespace Fingers.Gameplay.Movement
             _startPosition = transform.position;
         }
 
-        public void Construct(IStaticDataService staticDataService, GameplayHandler gameplayHandler)
+        public void Construct(IStaticDataService staticDataService,
+            GameplayHandler gameplayHandler,
+            EnemiesArea enemiesArea)
         {
             _staticDataService = staticDataService;
             _gameplayHandler = gameplayHandler;
+            _enemiesArea = enemiesArea;
         }
 
         private void Update()
@@ -36,10 +41,14 @@ namespace Fingers.Gameplay.Movement
         public void Activate()
         {
             _isMovement = true;
+            
+            _enemiesArea.Play();
         }
 
         public void Deactivate()
         {
+            _enemiesArea.Stop();
+            
             _isMovement = false;
             transform.position = _startPosition;
             playerFinger.ResetPosition();
@@ -51,6 +60,7 @@ namespace Fingers.Gameplay.Movement
                 return;
             
             transform.Translate(0f, -_staticDataService.Gameplay.startSpeedMove * Time.deltaTime, 0f);
+            _enemiesArea.Movement(_staticDataService.Gameplay.startSpeedMove * Time.deltaTime);
             _gameplayHandler.UpdateScores(GetScores());
         }
 

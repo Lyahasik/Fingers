@@ -13,4 +13,11 @@ MonoBehaviour:
   m_Name: GameplayData
   m_EditorClassIdentifier: 
   delayToStartGame: 0.3
-  startSpeedMove: 5
+  startSpeedMove: 10
+  spawnDistance: 1
+  enemiesArea: {fileID: 4584072582481964935, guid: 588d74a4d3bdcc24dbda4077ee53bab1, type: 3}
+  Levels:
+  - enemiesGroups:
+    - {fileID: 2583599837142052428, guid: 01253c7c80de68e43a0362ed514687f0, type: 3}
+    - {fileID: 2583599837142052428, guid: 01253c7c80de68e43a0362ed514687f0, type: 3}
+    - {fileID: 2583599837142052428, guid: 01253c7c80de68e43a0362ed514687f0, type: 3}

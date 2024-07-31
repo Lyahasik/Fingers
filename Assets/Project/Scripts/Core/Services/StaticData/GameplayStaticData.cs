@@ -1,4 +1,7 @@
+using System.Collections.Generic;
 using UnityEngine;
+
+using Fingers.Gameplay.Movement;
 
 namespace Fingers.Core.Services.StaticData
 {
@@ -7,5 +10,10 @@ namespace Fingers.Core.Services.StaticData
     {
         public float delayToStartGame;
         public float startSpeedMove;
+
+        [Space]
+        public float spawnDistance;
+        public EnemiesArea enemiesArea;
+        public List<LevelStaticData> Levels;
     }
 }

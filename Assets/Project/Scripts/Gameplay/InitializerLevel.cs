@@ -1,4 +1,6 @@
-﻿using Fingers.Core.Publish.Services.Ads;
+﻿using UnityEngine;
+
+using Fingers.Core.Publish.Services.Ads;
 using Fingers.Core.Publish.Services.Analytics;
 using Fingers.Core.Services;
 using Fingers.Core.Services.Factories.Gameplay;
@@ -6,12 +8,12 @@ using Fingers.Core.Services.Factories.UI;
 using Fingers.Core.Services.Localization;
 using Fingers.Core.Services.Progress;
 using Fingers.Core.Services.StaticData;
+using Fingers.Gameplay.Movement;
 using Fingers.UI.Gameplay;
 using Fingers.UI.Hud;
 using Fingers.UI.Information;
 using Fingers.UI.Information.Services;
 using Fingers.UI.MainMenu;
-using UnityEngine;
 
 namespace Fingers.Gameplay
 {
@@ -84,9 +86,13 @@ namespace Fingers.Gameplay
 
         private void CreateGameplay(MainMenuHandler mainMenuHandler, HudView hudView)
         {
+            EnemiesArea enemiesArea = _gameplayFactory.CreateEnemiesArea();
+            enemiesArea.Construct(_staticDataService.Gameplay, _gameplayFactory);
+            enemiesArea.Initialize();
+            
             GameplayHandler gameplayHandler = _gameplayFactory.CreateGameplayHandler();
             gameplayHandler.Construct(_progressProviderService, mainMenuHandler, hudView);
-            gameplayHandler.Initialize(_staticDataService);
+            gameplayHandler.Initialize(_staticDataService, enemiesArea);
 
             mainMenuHandler.SetGameplayHandler(gameplayHandler);
             

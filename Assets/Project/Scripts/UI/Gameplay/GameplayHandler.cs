@@ -1,10 +1,11 @@
+using UnityEngine;
+
 using Fingers.Core.Progress;
 using Fingers.Core.Services.Progress;
 using Fingers.Core.Services.StaticData;
 using Fingers.Gameplay.Movement;
 using Fingers.UI.Hud;
 using Fingers.UI.MainMenu;
-using UnityEngine;
 
 namespace Fingers.UI.Gameplay
 {
@@ -34,9 +35,9 @@ namespace Fingers.UI.Gameplay
             _hudView = hudView;
         }
 
-        public void Initialize(IStaticDataService staticDataService)
+        public void Initialize(IStaticDataService staticDataService, EnemiesArea enemiesArea)
         {
-            gameplayArea.Construct(staticDataService, this);
+            gameplayArea.Construct(staticDataService, this, enemiesArea);
             activeArea.Construct(staticDataService, _mainMenuHandler, this, gameplayArea);
             
             Register(_progressProviderService);
