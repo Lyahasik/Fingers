@@ -69,6 +69,9 @@ namespace Fingers.UI.Gameplay
 
         public void EndGame()
         {
+            if (!_isGameActive)
+                return;
+            
             WriteProgress();
                 
             _isGameActive = false;

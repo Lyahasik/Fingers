@@ -15,6 +15,8 @@ namespace Fingers.Gameplay.Player
             
             var parentRectTransform = transform.parent.GetComponent<RectTransform>();
             _shiftPosition = new Vector2(parentRectTransform.rect.width * 0.5f, parentRectTransform.rect.height * 0.5f);
+            
+            trail.SetActive(false);
         }
 
         public void UpdatePosition(in Vector3 newPosition)

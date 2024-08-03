@@ -10,10 +10,11 @@ namespace Fingers.Core.Services.StaticData
     {
         public float delayToStartGame;
         public float startSpeedMove;
+        public float playerRadius = 1f;
 
         [Space]
         public float spawnDistance;
         public EnemiesArea enemiesArea;
-        public List<LevelStaticData> Levels;
+        public List<LevelStaticData> levels;
     }
 }

@@ -30,16 +30,7 @@ mergeInto(LibraryManager.library, {
     },
 
     LoadDataExtern: function () {
-        if (player && player.getMode() !== 'lite') {
-            player.getData().then(_data => {
-            const json = JSON.stringify(_data);
-            console.log(json);
-            myGameInstance.SendMessage('PublishHandler', 'LoadProgress', json);
-        })
-        } else {
-            myGameInstance.SendMessage('PublishHandler', 'LoadProgress', 'LocalProgress');
-        }
-        
+        myGameInstance.SendMessage('PublishHandler', 'LoadProgress', 'LocalProgress');
     },
 
     SaveDataExtern: function (data) {

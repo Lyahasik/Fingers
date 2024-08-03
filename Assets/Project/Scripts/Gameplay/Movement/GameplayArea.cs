@@ -17,7 +17,8 @@ namespace Fingers.Gameplay.Movement
         
         private Vector3 _startPosition;
 
-        private bool _isMovement;
+        private bool _isPlaying;
+        private bool _isLockPlayer;
 
         private void Awake()
         {
@@ -40,7 +41,7 @@ namespace Fingers.Gameplay.Movement
 
         public void Activate()
         {
-            _isMovement = true;
+            _isPlaying = true;
             
             _enemiesArea.Play();
         }
@@ -49,14 +50,15 @@ namespace Fingers.Gameplay.Movement
         {
             _enemiesArea.Stop();
             
-            _isMovement = false;
+            _isPlaying = false;
+            _isLockPlayer = true;
             transform.position = _startPosition;
             playerFinger.ResetPosition();
         }
 
         private void MovementArea()
         {
-            if (!_isMovement)
+            if (!_isPlaying)
                 return;
             
             transform.Translate(0f, -_staticDataService.Gameplay.startSpeedMove * Time.deltaTime, 0f);
@@ -64,8 +66,14 @@ namespace Fingers.Gameplay.Movement
             _gameplayHandler.UpdateScores(GetScores());
         }
 
-        public void UpdateFingerPosition(in Vector3 newPosition)
+        public void UpdateFingerPosition(in Vector3 newPosition, bool isUnlockPlayer = false)
         {
+            if (isUnlockPlayer)
+                _isLockPlayer = false;
+            
+            if (_isLockPlayer)
+                return;
+            
             playerFinger.UpdatePosition(newPosition);
         }
 

@@ -3,18 +3,18 @@ using UnityEngine.Splines;
 
 namespace Fingers.Gameplay.Enemies
 {
-    public class Enemy : MonoBehaviour
+    public class PathAnimate : MonoBehaviour
     {
         [SerializeField] private SplineAnimate splineAnimate;
 
         public void Activate()
         {
-            splineAnimate.Play();
+            splineAnimate?.Play();
         }
 
         public void Deactivate()
         {
-            splineAnimate.Pause();
+            splineAnimate?.Pause();
         }
     }
 }

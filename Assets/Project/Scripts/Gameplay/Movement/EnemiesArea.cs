@@ -62,7 +62,7 @@ namespace Fingers.Gameplay.Movement
                 foreach (var enemies in _poolEnemies.ToArray())
                     _poolEnemies.Remove(enemies);
             
-            _gameplayStaticData.Levels[_currentLevelId].enemiesGroups.ForEach(data =>
+            _gameplayStaticData.levels[_currentLevelId].enemiesGroups.ForEach(data =>
             {
                 EnemiesGroup enemies = _gameplayFactory.CreateEnemiesGroup(data, transform);
                 enemies.transform.position = poolPoint.position;

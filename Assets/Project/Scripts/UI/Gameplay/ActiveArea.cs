@@ -26,18 +26,27 @@ namespace Fingers.UI.Gameplay
 
         public void OnPointerDown(PointerEventData eventData)
         {
-            _gameplayArea.UpdateFingerPosition(eventData.position);
+            _gameplayArea.UpdateFingerPosition(eventData.position, true);
             _mainMenuHandler.DeactivateMenu();
         }
 
         public void OnDrag(PointerEventData eventData)
         {
             _gameplayArea.UpdateFingerPosition(eventData.position);
+
+            CheckHit(eventData.position);
         }
 
         public void OnPointerUp(PointerEventData eventData)
         {
             _gameplayHandler.EndGame();
+        }
+
+        private void CheckHit(Vector3 newPosition)
+        {
+            RaycastHit hit;
+            if (Physics.SphereCast(Camera.main.ScreenToWorldPoint(newPosition), _staticDataService.Gameplay.playerRadius, Vector3.forward, out hit))
+                _gameplayHandler.EndGame();
         }
     }
 }

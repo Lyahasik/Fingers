@@ -6,7 +6,8 @@ namespace Fingers.Gameplay.Enemies
     public class EnemiesGroup : MonoBehaviour
     {
         [SerializeField] private Transform topBorderPoint;
-        [SerializeField] private List<Enemy> enemies;
+        [SerializeField] private List<PathGroup> paths;
+        [SerializeField] private List<PathAnimate> enemies;
 
         private bool _isReady;
         private float _height;
@@ -28,11 +29,13 @@ namespace Fingers.Gameplay.Enemies
 
         public void Activate()
         {
+            paths.ForEach(data => data.Activate());
             enemies.ForEach(data => data.Activate());
         }
 
         public void Deactivate()
         {
+            paths.ForEach(data => data.Deactivate());
             enemies.ForEach(data => data.Deactivate());
             _isReady = false;
         }
