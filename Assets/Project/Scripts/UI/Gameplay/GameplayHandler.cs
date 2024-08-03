@@ -4,6 +4,7 @@ using Fingers.Core.Progress;
 using Fingers.Core.Services.Progress;
 using Fingers.Core.Services.StaticData;
 using Fingers.Gameplay.Movement;
+using Fingers.Gameplay.Player;
 using Fingers.UI.Hud;
 using Fingers.UI.MainMenu;
 
@@ -35,9 +36,9 @@ namespace Fingers.UI.Gameplay
             _hudView = hudView;
         }
 
-        public void Initialize(IStaticDataService staticDataService, EnemiesArea enemiesArea)
+        public void Initialize(IStaticDataService staticDataService, EnemiesArea enemiesArea, PlayerFinger playerFinger)
         {
-            gameplayArea.Construct(staticDataService, this, enemiesArea);
+            gameplayArea.Construct(staticDataService, this, enemiesArea, playerFinger);
             activeArea.Construct(staticDataService, _mainMenuHandler, this, gameplayArea);
             
             Register(_progressProviderService);
@@ -63,8 +64,6 @@ namespace Fingers.UI.Gameplay
         {
             _isGameActive = true;
             gameplayArea.Activate();
-            
-            Debug.Log("Start game");
         }
 
         public void EndGame()

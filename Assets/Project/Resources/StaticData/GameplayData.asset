@@ -17,6 +17,7 @@ MonoBehaviour:
   playerRadius: 1
   spawnDistance: 5
   enemiesArea: {fileID: 4584072582481964935, guid: 588d74a4d3bdcc24dbda4077ee53bab1, type: 3}
+  playerFinger: {fileID: 8327973881992663139, guid: 47e142ac6a8b4d3458936e4c246af049, type: 3}
   levels:
   - enemiesGroups:
     - {fileID: 1631821186049126936, guid: 5a81140aa9f812e48b9a27fe76d35070, type: 3}

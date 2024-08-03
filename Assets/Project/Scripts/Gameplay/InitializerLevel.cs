@@ -9,6 +9,7 @@ using Fingers.Core.Services.Localization;
 using Fingers.Core.Services.Progress;
 using Fingers.Core.Services.StaticData;
 using Fingers.Gameplay.Movement;
+using Fingers.Gameplay.Player;
 using Fingers.UI.Gameplay;
 using Fingers.UI.Hud;
 using Fingers.UI.Information;
@@ -90,9 +91,11 @@ namespace Fingers.Gameplay
             enemiesArea.Construct(_staticDataService.Gameplay, _gameplayFactory);
             enemiesArea.Initialize();
             
+            PlayerFinger playerFinger = _gameplayFactory.CreatePlayerFinger();
+            
             GameplayHandler gameplayHandler = _gameplayFactory.CreateGameplayHandler();
             gameplayHandler.Construct(_progressProviderService, mainMenuHandler, hudView);
-            gameplayHandler.Initialize(_staticDataService, enemiesArea);
+            gameplayHandler.Initialize(_staticDataService, enemiesArea, playerFinger);
 
             mainMenuHandler.SetGameplayHandler(gameplayHandler);
             

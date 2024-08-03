@@ -9,16 +9,21 @@ namespace Fingers.Gameplay.Movement
     public class GameplayArea : MonoBehaviour
     {
         [SerializeField] private Transform pointScoring;
-        [SerializeField] private PlayerFinger playerFinger;
         
         private IStaticDataService _staticDataService;
         private GameplayHandler _gameplayHandler;
         private EnemiesArea _enemiesArea;
-        
+        private PlayerFinger _playerFinger;
+
         private Vector3 _startPosition;
 
         private bool _isPlaying;
         private bool _isLockPlayer;
+
+        public bool IsLockPlayer
+        {
+            set => _isLockPlayer = value;
+        }
 
         private void Awake()
         {
@@ -27,11 +32,13 @@ namespace Fingers.Gameplay.Movement
 
         public void Construct(IStaticDataService staticDataService,
             GameplayHandler gameplayHandler,
-            EnemiesArea enemiesArea)
+            EnemiesArea enemiesArea,
+            PlayerFinger playerFinger)
         {
             _staticDataService = staticDataService;
             _gameplayHandler = gameplayHandler;
             _enemiesArea = enemiesArea;
+            _playerFinger = playerFinger;
         }
 
         private void Update()
@@ -41,6 +48,9 @@ namespace Fingers.Gameplay.Movement
 
         public void Activate()
         {
+            if (_isLockPlayer)
+                return;
+            
             _isPlaying = true;
             
             _enemiesArea.Play();
@@ -53,7 +63,7 @@ namespace Fingers.Gameplay.Movement
             _isPlaying = false;
             _isLockPlayer = true;
             transform.position = _startPosition;
-            playerFinger.ResetPosition();
+            _playerFinger.ResetPosition();
         }
 
         private void MovementArea()
@@ -66,20 +76,17 @@ namespace Fingers.Gameplay.Movement
             _gameplayHandler.UpdateScores(GetScores());
         }
 
-        public void UpdateFingerPosition(in Vector3 newPosition, bool isUnlockPlayer = false)
+        public void UpdateFingerPosition(in Vector3 newPosition)
         {
-            if (isUnlockPlayer)
-                _isLockPlayer = false;
-            
             if (_isLockPlayer)
                 return;
             
-            playerFinger.UpdatePosition(newPosition);
+            _playerFinger.UpdatePosition(newPosition);
         }
 
         private int GetScores()
         {
-            return (int) Vector3.Distance(pointScoring.position, playerFinger.transform.position);
+            return (int) Vector2.Distance(pointScoring.position, _playerFinger.transform.position);
         }
     }
 }

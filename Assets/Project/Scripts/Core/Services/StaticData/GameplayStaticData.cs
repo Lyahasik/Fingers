@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using Fingers.Gameplay.Movement;
+using Fingers.Gameplay.Player;
 
 namespace Fingers.Core.Services.StaticData
 {
@@ -15,6 +16,7 @@ namespace Fingers.Core.Services.StaticData
         [Space]
         public float spawnDistance;
         public EnemiesArea enemiesArea;
+        public PlayerFinger playerFinger;
         public List<LevelStaticData> levels;
     }
 }

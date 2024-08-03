@@ -1,3 +1,4 @@
+using System;
 using Fingers.Core.Services.StaticData;
 using Fingers.Gameplay.Movement;
 using Fingers.UI.MainMenu;
@@ -12,6 +13,13 @@ namespace Fingers.UI.Gameplay
         private MainMenuHandler _mainMenuHandler;
         private GameplayHandler _gameplayHandler;
         private GameplayArea _gameplayArea;
+        
+        private Camera _mainCamera;
+
+        private void Start()
+        {
+            _mainCamera = Camera.main;
+        }
 
         public void Construct(IStaticDataService staticDataService,
             MainMenuHandler mainMenuHandler,
@@ -26,26 +34,34 @@ namespace Fingers.UI.Gameplay
 
         public void OnPointerDown(PointerEventData eventData)
         {
-            _gameplayArea.UpdateFingerPosition(eventData.position, true);
-            _mainMenuHandler.DeactivateMenu();
+            _gameplayArea.IsLockPlayer = false;
+
+            if (_gameplayHandler.IsGameActive)
+            {
+                _gameplayArea.UpdateFingerPosition(_mainCamera.ScreenToWorldPoint(eventData.position));
+                _gameplayHandler.StartGame();
+            }
+            else
+                _mainMenuHandler.DeactivateMenu();
         }
 
         public void OnDrag(PointerEventData eventData)
         {
-            _gameplayArea.UpdateFingerPosition(eventData.position);
+            _gameplayArea.UpdateFingerPosition(_mainCamera.ScreenToWorldPoint(eventData.position));
 
             CheckHit(eventData.position);
         }
 
         public void OnPointerUp(PointerEventData eventData)
         {
+            _gameplayArea.IsLockPlayer = true;
             _gameplayHandler.EndGame();
         }
 
         private void CheckHit(Vector3 newPosition)
         {
             RaycastHit hit;
-            if (Physics.SphereCast(Camera.main.ScreenToWorldPoint(newPosition), _staticDataService.Gameplay.playerRadius, Vector3.forward, out hit))
+            if (Physics.SphereCast(_mainCamera.ScreenToWorldPoint(newPosition), _staticDataService.Gameplay.playerRadius, Vector3.forward, out hit))
                 _gameplayHandler.EndGame();
         }
     }
