@@ -36,9 +36,9 @@ namespace Fingers.UI.Gameplay
         {
             _gameplayArea.IsLockPlayer = false;
 
+            _gameplayArea.UpdateFingerPosition(_mainCamera.ScreenToWorldPoint(eventData.position));
             if (_gameplayHandler.IsGameActive)
             {
-                _gameplayArea.UpdateFingerPosition(_mainCamera.ScreenToWorldPoint(eventData.position));
                 _gameplayHandler.StartGame();
             }
             else

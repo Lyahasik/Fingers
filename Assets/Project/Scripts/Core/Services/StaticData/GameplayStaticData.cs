@@ -10,13 +10,11 @@ namespace Fingers.Core.Services.StaticData
     public class GameplayStaticData : ScriptableObject
     {
         public float delayToStartGame;
-        public float startSpeedMove;
         public float playerRadius = 1f;
 
         [Space]
-        public float spawnDistance;
         public EnemiesArea enemiesArea;
         public PlayerFinger playerFinger;
-        public List<LevelStaticData> levels;
+        public List<DifficultyStaticData> difficulties;
     }
 }

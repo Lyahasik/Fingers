@@ -13,19 +13,25 @@ MonoBehaviour:
   m_Name: GameplayData
   m_EditorClassIdentifier: 
   delayToStartGame: 0.3
-  startSpeedMove: 8
   playerRadius: 1
-  spawnDistance: 5
   enemiesArea: {fileID: 4584072582481964935, guid: 588d74a4d3bdcc24dbda4077ee53bab1, type: 3}
   playerFinger: {fileID: 8327973881992663139, guid: 47e142ac6a8b4d3458936e4c246af049, type: 3}
-  levels:
-  - enemiesGroups:
-    - {fileID: 1631821186049126936, guid: 5a81140aa9f812e48b9a27fe76d35070, type: 3}
-    - {fileID: 2583599837142052428, guid: 01253c7c80de68e43a0362ed514687f0, type: 3}
-    - {fileID: 391948501418627768, guid: a9a97f3b972c501439e288e4bf28cc5a, type: 3}
-    - {fileID: 7895795020883185681, guid: 17a4601ed7b35ce45818f0b23d641f9c, type: 3}
-    - {fileID: 814653318383991954, guid: f59db287c1bc8f24ea6b3e2ae6c988f1, type: 3}
-    - {fileID: 9052643597206147082, guid: fab41998036a17f45b326987d316a730, type: 3}
-    - {fileID: 4034134885663260556, guid: 886719d770842c445a063c7fcc45e423, type: 3}
-    - {fileID: 6368517328757978875, guid: 7c383614bd4bdf840afe712ba37a6e0c, type: 3}
-    - {fileID: 2577578571623496094, guid: 5d0f2022cc0606a47bfe2dfa243727c8, type: 3}
+  difficulties:
+  - transitionScores: 200
+    speedMove: 8
+    spawnDistance: 10
+    background: {fileID: 21300000, guid: 5c38cb3216338e643a87fba669fdaa54, type: 3}
+    enemiesGroups:
+    - {fileID: 2577578571623496094, guid: a10383fe06d868140936dec6cbf9b691, type: 3}
+  - transitionScores: 400
+    speedMove: 9
+    spawnDistance: 9
+    background: {fileID: 21300000, guid: 9ab4e0a5b2c39f840bf0fffa3df52c50, type: 3}
+    enemiesGroups:
+    - {fileID: 3288200897519027942, guid: 089a981ee3624f04ba8dff2dea114d78, type: 3}
+  - transitionScores: 600
+    speedMove: 10
+    spawnDistance: 8
+    background: {fileID: 21300000, guid: 67239a48dd5fdbd4191e985c398841d5, type: 3}
+    enemiesGroups:
+    - {fileID: 2577578571623496094, guid: a10383fe06d868140936dec6cbf9b691, type: 3}

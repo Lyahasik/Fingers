@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 5920291658892627319}
   - component: {fileID: 5678592206879135577}
   - component: {fileID: 696319506989702608}
-  - component: {fileID: 4428170958710251822}
   - component: {fileID: 4318411559989604307}
+  - component: {fileID: 9029403513629157699}
   m_Layer: 0
-  m_Name: EnemyBase
+  m_Name: EnemyQuad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c150a53473c6b4f449c65dee7eedde62, type: 2}
+  - {fileID: 2100000, guid: 849bda9e5aaf6934d8cb163898e4480e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -109,27 +109,6 @@ MonoBehaviour:
   m_ObjectForwardAxis: 0
   m_ObjectUpAxis: 2
   m_StartOffset: 0
---- !u!135 &4428170958710251822
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4070516921192399613}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5000001
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4318411559989604307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,3 +122,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   splineAnimate: {fileID: 696319506989702608}
+--- !u!65 &9029403513629157699
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4070516921192399613}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.0000002, y: 1.0000002, z: 6.1232336e-17}
+  m_Center: {x: 0, y: 0, z: 0}
