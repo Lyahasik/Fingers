@@ -13,25 +13,101 @@ MonoBehaviour:
   m_Name: GameplayData
   m_EditorClassIdentifier: 
   delayToStartGame: 0.3
-  playerRadius: 1
+  playerRadius: 0.5
   enemiesArea: {fileID: 4584072582481964935, guid: 588d74a4d3bdcc24dbda4077ee53bab1, type: 3}
   playerFinger: {fileID: 8327973881992663139, guid: 47e142ac6a8b4d3458936e4c246af049, type: 3}
   difficulties:
   - transitionScores: 200
     speedMove: 8
     spawnDistance: 10
-    background: {fileID: 21300000, guid: 5c38cb3216338e643a87fba669fdaa54, type: 3}
+    background: {fileID: 21300000, guid: 89b0fbaa146c59144bc24c3613367ef3, type: 3}
     enemiesGroups:
-    - {fileID: 2577578571623496094, guid: a10383fe06d868140936dec6cbf9b691, type: 3}
+    - {fileID: 1631821186049126936, guid: 5a81140aa9f812e48b9a27fe76d35070, type: 3}
+    - {fileID: 2583599837142052428, guid: 01253c7c80de68e43a0362ed514687f0, type: 3}
+    - {fileID: 6368517328757978875, guid: 5b2ae2fbb4f6fe84998510aed9500fe2, type: 3}
+    - {fileID: 391948501418627768, guid: a9a97f3b972c501439e288e4bf28cc5a, type: 3}
   - transitionScores: 400
     speedMove: 9
     spawnDistance: 9
-    background: {fileID: 21300000, guid: 9ab4e0a5b2c39f840bf0fffa3df52c50, type: 3}
+    background: {fileID: 21300000, guid: e3586838fea67c146b807820423e376e, type: 3}
     enemiesGroups:
+    - {fileID: 2577578571623496094, guid: 1880abb51737b894b9f0aaf2da13d8b4, type: 3}
     - {fileID: 3288200897519027942, guid: 089a981ee3624f04ba8dff2dea114d78, type: 3}
+    - {fileID: 7895795020883185681, guid: 17a4601ed7b35ce45818f0b23d641f9c, type: 3}
+    - {fileID: 4034134885663260556, guid: f8606e67c50e0554e85e6cc1bd5876a8, type: 3}
   - transitionScores: 600
     speedMove: 10
     spawnDistance: 8
-    background: {fileID: 21300000, guid: 67239a48dd5fdbd4191e985c398841d5, type: 3}
+    background: {fileID: 21300000, guid: 00ebc0d10c8275d40aca77b05cb5dab5, type: 3}
     enemiesGroups:
+    - {fileID: 3092481892929953053, guid: 30ee1f2ff9d40fc448d4b5862320b820, type: 3}
     - {fileID: 2577578571623496094, guid: a10383fe06d868140936dec6cbf9b691, type: 3}
+    - {fileID: 6111557630021388901, guid: 8fb4142f7a7bfb14d88985741d50f4cd, type: 3}
+    - {fileID: 4962775738735608581, guid: e6c8ae9842856d6439dadca752c3172b, type: 3}
+  - transitionScores: 800
+    speedMove: 10
+    spawnDistance: 7
+    background: {fileID: 21300000, guid: 16ff6f72549fe3a488a325420482c69c, type: 3}
+    enemiesGroups:
+    - {fileID: 938399801214883759, guid: 9bd6e959068ef144fb9afdbcc19d7768, type: 3}
+    - {fileID: 5576331043735472894, guid: febd028ed380ea94d9bf010b7d98b5fc, type: 3}
+    - {fileID: 2881674589057400316, guid: 273f4330766194c46909753368289588, type: 3}
+    - {fileID: 9052643597206147082, guid: 47fd3b95b46b2e0449ba726dbe8c1bb2, type: 3}
+  - transitionScores: 800
+    speedMove: 10
+    spawnDistance: 6
+    background: {fileID: 21300000, guid: d4cd394072bd4234d84c4dd6ad26a197, type: 3}
+    enemiesGroups:
+    - {fileID: 7405410343762686128, guid: 0f0635d8947926d4b9faf1a6f8b349c4, type: 3}
+    - {fileID: 6284191789934026080, guid: c395b7c32eb01f140b6a7d236400f2b5, type: 3}
+    - {fileID: 814653318383991954, guid: 80ea28e89c6bc5e45afd0a9d54c04cb2, type: 3}
+    - {fileID: 3761540965734519079, guid: 93e5831976b8ff54d96752e15675de57, type: 3}
+  - transitionScores: 1000
+    speedMove: 10
+    spawnDistance: 5
+    background: {fileID: 21300000, guid: 89b0fbaa146c59144bc24c3613367ef3, type: 3}
+    enemiesGroups:
+    - {fileID: 8171819645607687822, guid: a235c5f6b44740a458ef9e47ce75b381, type: 3}
+    - {fileID: 8399791790114450924, guid: e57245772426796498e8480ab9e7a6c2, type: 3}
+    - {fileID: 2789950862110323151, guid: d755d1c1d27fa6747947fefd0763d7a7, type: 3}
+    - {fileID: 3426415034988770342, guid: 25a5005c751b5e14f8b57cb60e6dfb11, type: 3}
+  - transitionScores: 1200
+    speedMove: 9
+    spawnDistance: 5
+    background: {fileID: 21300000, guid: e3586838fea67c146b807820423e376e, type: 3}
+    enemiesGroups:
+    - {fileID: 8399791790114450924, guid: e57245772426796498e8480ab9e7a6c2, type: 3}
+    - {fileID: 6465576206463281395, guid: 6a70a024f32222b4eb5ee7787a6fee4a, type: 3}
+    - {fileID: 2441926406020883380, guid: 0976c4b3abbfc2941886c3457b82cf04, type: 3}
+  - transitionScores: 10000000
+    speedMove: 8
+    spawnDistance: 5
+    background: {fileID: 21300000, guid: 00ebc0d10c8275d40aca77b05cb5dab5, type: 3}
+    enemiesGroups:
+    - {fileID: 1631821186049126936, guid: 5a81140aa9f812e48b9a27fe76d35070, type: 3}
+    - {fileID: 2583599837142052428, guid: 01253c7c80de68e43a0362ed514687f0, type: 3}
+    - {fileID: 6368517328757978875, guid: 5b2ae2fbb4f6fe84998510aed9500fe2, type: 3}
+    - {fileID: 2577578571623496094, guid: 1880abb51737b894b9f0aaf2da13d8b4, type: 3}
+    - {fileID: 3288200897519027942, guid: 089a981ee3624f04ba8dff2dea114d78, type: 3}
+    - {fileID: 3092481892929953053, guid: 30ee1f2ff9d40fc448d4b5862320b820, type: 3}
+    - {fileID: 938399801214883759, guid: 9bd6e959068ef144fb9afdbcc19d7768, type: 3}
+    - {fileID: 391948501418627768, guid: a9a97f3b972c501439e288e4bf28cc5a, type: 3}
+    - {fileID: 7895795020883185681, guid: 17a4601ed7b35ce45818f0b23d641f9c, type: 3}
+    - {fileID: 4034134885663260556, guid: f8606e67c50e0554e85e6cc1bd5876a8, type: 3}
+    - {fileID: 2577578571623496094, guid: a10383fe06d868140936dec6cbf9b691, type: 3}
+    - {fileID: 6111557630021388901, guid: 8fb4142f7a7bfb14d88985741d50f4cd, type: 3}
+    - {fileID: 4962775738735608581, guid: e6c8ae9842856d6439dadca752c3172b, type: 3}
+    - {fileID: 5576331043735472894, guid: febd028ed380ea94d9bf010b7d98b5fc, type: 3}
+    - {fileID: 2881674589057400316, guid: 273f4330766194c46909753368289588, type: 3}
+    - {fileID: 7405410343762686128, guid: 0f0635d8947926d4b9faf1a6f8b349c4, type: 3}
+    - {fileID: 6284191789934026080, guid: c395b7c32eb01f140b6a7d236400f2b5, type: 3}
+    - {fileID: 8171819645607687822, guid: a235c5f6b44740a458ef9e47ce75b381, type: 3}
+    - {fileID: 5341250799937738543, guid: 59cf538f6dca92041af522f93bcc23c1, type: 3}
+    - {fileID: 9052643597206147082, guid: 47fd3b95b46b2e0449ba726dbe8c1bb2, type: 3}
+    - {fileID: 814653318383991954, guid: 80ea28e89c6bc5e45afd0a9d54c04cb2, type: 3}
+    - {fileID: 3761540965734519079, guid: 93e5831976b8ff54d96752e15675de57, type: 3}
+    - {fileID: 8399791790114450924, guid: e57245772426796498e8480ab9e7a6c2, type: 3}
+    - {fileID: 2789950862110323151, guid: d755d1c1d27fa6747947fefd0763d7a7, type: 3}
+    - {fileID: 3426415034988770342, guid: 25a5005c751b5e14f8b57cb60e6dfb11, type: 3}
+    - {fileID: 6465576206463281395, guid: 6a70a024f32222b4eb5ee7787a6fee4a, type: 3}
+    - {fileID: 2441926406020883380, guid: 0976c4b3abbfc2941886c3457b82cf04, type: 3}

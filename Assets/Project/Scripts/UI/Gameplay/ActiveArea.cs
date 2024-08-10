@@ -1,4 +1,3 @@
-using System;
 using Fingers.Core.Services.StaticData;
 using Fingers.Gameplay.Movement;
 using Fingers.UI.MainMenu;
