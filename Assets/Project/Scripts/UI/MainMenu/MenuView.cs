@@ -34,6 +34,7 @@ namespace Fingers.UI.MainMenu
         [SerializeField] private MMF_Player feedbackEndGame;
         [SerializeField] private MMF_Player feedbackOpenMenu;
 
+        private IStaticDataService _staticDataService;
         private PublishHandler _publishHandler;
         private IProcessingAdsService _processingAdsService;
         private IProgressProviderService _progressProviderService;
@@ -51,24 +52,25 @@ namespace Fingers.UI.MainMenu
             set => _gameplayHandler = value;
         }
 
-        public void Construct(PublishHandler publishHandler,
+        public void Construct(IStaticDataService staticDataService,
+            PublishHandler publishHandler,
             IProcessingAdsService processingAdsService,
             IProgressProviderService progressProviderService)
         {
+            _staticDataService = staticDataService;
             _publishHandler = publishHandler;
             _processingAdsService = processingAdsService;
             _progressProviderService = progressProviderService;
         }
 
-        public void Initialize(IStaticDataService staticDataService,
-            ILocalizationService localizationService)
+        public void Initialize(ILocalizationService localizationService)
         {
             Debug.Log($"[{ GetType() }] initialize");
             
             walletView.Initialize(_progressProviderService);
             
-            resultScoresView.Construct(staticDataService, localizationService);
-            resultScoresView.Initialize(_progressProviderService);
+            resultScoresView.Construct(_staticDataService, localizationService, _progressProviderService);
+            resultScoresView.Initialize();
             
             localeDropdown.Construct(localizationService, _progressProviderService);
             localeDropdown.Initialize();
@@ -140,7 +142,7 @@ namespace Fingers.UI.MainMenu
                 feedbackEndGame.PlayFeedbacks();
             }
             else if (!_isReviewedGame
-                     && _currentScores > 50)
+                     && _currentScores > _staticDataService.Gameplay.scoresForReviewOffer)
             {
                 _isReviewedGame = true;
                 

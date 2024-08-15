@@ -9,6 +9,9 @@ namespace Fingers.Core.Services.StaticData
     [CreateAssetMenu(fileName = "GameplayData", menuName = "Static data/Gameplay")]
     public class GameplayStaticData : ScriptableObject
     {
+        public int scoresForReviewOffer;
+        
+        [Space]
         public float delayToStartGame;
         public float playerRadius = 1f;
 

@@ -39,8 +39,8 @@ namespace Fingers.UI.MainMenu
             
             _windows.Add(menuView);
             
-            menuView.Construct(publishHandler, processingAdsService, progressProviderService);
-            menuView.Initialize(staticDataService, localizationService);
+            menuView.Construct(staticDataService, publishHandler, processingAdsService, progressProviderService);
+            menuView.Initialize(localizationService);
         }
 
         public void ActivateMenu(int scores)

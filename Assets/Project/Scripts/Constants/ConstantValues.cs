@@ -2,7 +2,7 @@
 {
     public static class ConstantValues
     {
-        public const int ADS_BLOCK_DELAY_TIME = 300;
+        public const int ADS_BLOCK_DELAY_TIME = 180;
 
         public const float DELAY_SAVING = 3f;
         

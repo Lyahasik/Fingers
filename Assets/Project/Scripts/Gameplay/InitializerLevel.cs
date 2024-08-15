@@ -97,8 +97,8 @@ namespace Fingers.Gameplay
             PlayerFinger playerFinger = _gameplayFactory.CreatePlayerFinger();
             
             GameplayHandler gameplayHandler = _gameplayFactory.CreateGameplayHandler();
-            gameplayHandler.Construct(_publishHandler, _progressProviderService, mainMenuHandler, hudView);
-            gameplayHandler.Initialize(_staticDataService, updateHandler, enemiesArea, playerFinger);
+            gameplayHandler.Construct(_staticDataService, _publishHandler, _progressProviderService, mainMenuHandler, hudView);
+            gameplayHandler.Initialize(updateHandler, enemiesArea, playerFinger);
 
             mainMenuHandler.SetGameplayHandler(gameplayHandler);
             

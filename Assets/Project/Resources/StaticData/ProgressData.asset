@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac963067ce1c41d4b8b4a185081847cc, type: 3}
   m_Name: ProgressData
   m_EditorClassIdentifier: 
-  medalsValue: 0a000000140000001e00000028000000
+  medalsValue: 2c0100005802000084030000b0040000

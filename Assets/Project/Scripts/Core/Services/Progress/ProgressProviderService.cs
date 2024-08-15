@@ -207,7 +207,7 @@ namespace Fingers.Core.Services.Progress
                 TimeGame = 0f,
                 
                 Wallet = new WalletData(staticDataService.StartProgress.money),
-                ScoresData = new ScoresData()
+                ScoresData = new ScoresData { MedalsProgress = new List<int>{ 0, 0, 0, 0 } }
             };
 
             SaveProgress();

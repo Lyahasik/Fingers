@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73a33320aef946f0a6f1e3a7346d832f, type: 3}
   m_Name: GameplayData
   m_EditorClassIdentifier: 
+  scoresForReviewOffer: 600
   delayToStartGame: 0.3
   playerRadius: 0.5
   enemiesArea: {fileID: 4584072582481964935, guid: 588d74a4d3bdcc24dbda4077ee53bab1, type: 3}
