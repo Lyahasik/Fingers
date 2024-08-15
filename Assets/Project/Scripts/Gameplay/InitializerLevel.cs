@@ -5,9 +5,11 @@ using Fingers.Core.Publish.Services.Analytics;
 using Fingers.Core.Services;
 using Fingers.Core.Services.Factories.Gameplay;
 using Fingers.Core.Services.Factories.UI;
+using Fingers.Core.Services.GameStateMachine;
 using Fingers.Core.Services.Localization;
 using Fingers.Core.Services.Progress;
 using Fingers.Core.Services.StaticData;
+using Fingers.Core.Update;
 using Fingers.Gameplay.Movement;
 using Fingers.Gameplay.Player;
 using Fingers.UI.Gameplay;
@@ -47,14 +49,14 @@ namespace Fingers.Gameplay
             _uiFactory = uiFactory;
         }
 
-        public void Initialize()
+        public void Initialize(UpdateHandler updateHandler)
         {
             RegisterGameplayServices();
             
             HudView hudView = CreateHUD();
 
             MainMenuHandler mainMenuHandler = CreateMainMenu();
-            CreateGameplay(mainMenuHandler, hudView);
+            CreateGameplay(updateHandler, mainMenuHandler, hudView);
         }
 
         private void OnDestroy()
@@ -72,10 +74,8 @@ namespace Fingers.Gameplay
         private MainMenuHandler CreateMainMenu()
         {
             MainMenuHandler mainMenuHandler = _uiFactory.CreateMainMenuHandler();
-            mainMenuHandler.Construct(
-                _processingAdsService,
-                _gameplayServicesContainer.Single<IInformationService>());
-            mainMenuHandler.Initialize(_staticDataService, _localizationService, _progressProviderService);
+            mainMenuHandler.Construct(_gameplayServicesContainer.Single<IInformationService>());
+            mainMenuHandler.Initialize(_staticDataService, _localizationService, _processingAdsService, _progressProviderService);
             
             InformationView information = _uiFactory.CreateInformation();
             information.Initialize(_staticDataService, _processingAdsService);
@@ -85,7 +85,7 @@ namespace Fingers.Gameplay
             return mainMenuHandler;
         }
 
-        private void CreateGameplay(MainMenuHandler mainMenuHandler, HudView hudView)
+        private void CreateGameplay(UpdateHandler updateHandler, MainMenuHandler mainMenuHandler, HudView hudView)
         {
             EnemiesArea enemiesArea = _gameplayFactory.CreateEnemiesArea();
             enemiesArea.Construct(_staticDataService.Gameplay, _gameplayFactory);
@@ -95,7 +95,7 @@ namespace Fingers.Gameplay
             
             GameplayHandler gameplayHandler = _gameplayFactory.CreateGameplayHandler();
             gameplayHandler.Construct(_progressProviderService, mainMenuHandler, hudView);
-            gameplayHandler.Initialize(_staticDataService, enemiesArea, playerFinger);
+            gameplayHandler.Initialize(_staticDataService, updateHandler, enemiesArea, playerFinger);
 
             mainMenuHandler.SetGameplayHandler(gameplayHandler);
             

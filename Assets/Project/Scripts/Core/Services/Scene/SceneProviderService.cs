@@ -90,7 +90,7 @@ namespace Fingers.Core.Services.Scene
                 processingAnalyticsService,
                 gameplayFactory,
                 uiFactory);
-            initializerLevel.Initialize();
+            initializerLevel.Initialize(updateHandler);
 
             Debug.Log("Level scene loaded.");
             gameStateMachine.Enter<GameplayState>();

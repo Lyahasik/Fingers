@@ -28,6 +28,7 @@ namespace Fingers.Gameplay.Movement
 
         public bool IsLockPlayer
         {
+            get => _isLockPlayer;
             set => _isLockPlayer = value;
         }
 
@@ -63,6 +64,15 @@ namespace Fingers.Gameplay.Movement
             _isPlaying = true;
             
             _enemiesArea.Play();
+        }
+
+        public void Pause()
+        {
+            _enemiesArea.Pause();
+
+            _isPlaying = false;
+            _isLockPlayer = true;
+            _playerFinger.ResetPosition();
         }
 
         public void Deactivate()

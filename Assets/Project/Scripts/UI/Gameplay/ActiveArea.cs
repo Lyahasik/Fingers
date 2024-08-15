@@ -1,3 +1,4 @@
+using Fingers.Core.Services.GameStateMachine;
 using Fingers.Core.Services.StaticData;
 using Fingers.Gameplay.Movement;
 using Fingers.UI.MainMenu;
@@ -36,11 +37,10 @@ namespace Fingers.UI.Gameplay
             _gameplayArea.IsLockPlayer = false;
 
             _gameplayArea.UpdateFingerPosition(_mainCamera.ScreenToWorldPoint(eventData.position));
-            if (_gameplayHandler.IsGameActive)
-            {
-                _gameplayHandler.StartGame();
-            }
-            else
+            
+            _gameplayHandler.ChangeState<GameplayActiveState>();
+            
+            if (_gameplayHandler.ActiveState is GameplayPrepareState)
                 _mainMenuHandler.DeactivateMenu();
         }
 
@@ -54,14 +54,17 @@ namespace Fingers.UI.Gameplay
         public void OnPointerUp(PointerEventData eventData)
         {
             _gameplayArea.IsLockPlayer = true;
-            _gameplayHandler.EndGame();
+            
+            if (_gameplayHandler.ActiveState is not GameplayPauseState
+                && _gameplayHandler.ActiveState is not GameplayPrepareState)
+                _gameplayHandler.ChangeState<GameplayInactiveState>();
         }
 
         private void CheckHit(Vector3 newPosition)
         {
             RaycastHit hit;
             if (Physics.SphereCast(_mainCamera.ScreenToWorldPoint(newPosition), _staticDataService.Gameplay.playerRadius, Vector3.forward, out hit))
-                _gameplayHandler.EndGame();
+                _gameplayHandler.ChangeState<GameplayPauseState>();
         }
     }
 }

@@ -20,6 +20,7 @@ namespace Fingers.Gameplay.Movement
         private List<EnemiesGroup> _enemies;
 
         private bool _isReadySpawn;
+        private bool _isPause;
 
         public DifficultyStaticData DifficultyStaticData => _difficultyStaticData;
 
@@ -43,17 +44,25 @@ namespace Fingers.Gameplay.Movement
 
         public void Play()
         {
-            _isReadySpawn = true;
+            if (_isPause)
+                _isPause = false;
+            else
+                _isReadySpawn = true;
+        }
+
+        public void Pause()
+        {
+            _isPause = true;
         }
 
         public void Stop()
         {
-            foreach (EnemiesGroup enemiesGroup in _enemies) 
+            foreach (EnemiesGroup enemiesGroup in _enemies)
                 Destroy(enemiesGroup.gameObject);
             
             _enemies.Clear();
-
-            _isReadySpawn = false;
+            
+            _isPause = false;
         }
 
         public void TryUpdateDifficulty(int scores)

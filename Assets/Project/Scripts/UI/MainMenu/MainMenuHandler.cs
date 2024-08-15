@@ -13,7 +13,6 @@ namespace Fingers.UI.MainMenu
     {
         [SerializeField] private MenuView menuView;
 
-        private IProcessingAdsService _processingAdsService;
         private IInformationService _informationService;
 
         private List<IWindow> _windows;
@@ -24,42 +23,37 @@ namespace Fingers.UI.MainMenu
             GetComponent<Canvas>().worldCamera = Camera.main;
         }
 
-        public void Construct(IProcessingAdsService processingAdsService,
-            IInformationService informationService)
+        public void Construct(IInformationService informationService)
         {
-            _processingAdsService = processingAdsService;
             _informationService = informationService;
         }
 
         public void Initialize(IStaticDataService staticDataService,
             ILocalizationService localizationService,
+            IProcessingAdsService processingAdsService,
             IProgressProviderService progressProviderService)
         {
             _windows = new List<IWindow>();
             
             _windows.Add(menuView);
             
+            menuView.Construct(processingAdsService);
             menuView.Initialize(staticDataService, localizationService, progressProviderService);
         }
 
-        public void ActivateMenu()
+        public void ActivateMenu(int scores)
         {
-            menuView.EndGame();
+            menuView.EndGame(scores);
+        }
+
+        public void PauseGame(int scores)
+        {
+            menuView.PauseGame(scores);
         }
 
         public void DeactivateMenu()
         {
             menuView.DeactivateMenu();
-        }
-
-        public void ActivateWindow(int idWindow)
-        {
-            _currentWindowType = (WindowType) idWindow;
-
-            foreach (IWindow window in _windows) 
-                window.ActivationUpdate(_currentWindowType);
-            
-            _processingAdsService.ShowAdsInterstitial();
         }
 
         public void SetGameplayHandler(GameplayHandler gameplayHandler)
