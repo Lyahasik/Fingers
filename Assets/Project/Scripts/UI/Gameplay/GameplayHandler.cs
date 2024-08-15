@@ -1,6 +1,7 @@
 using UnityEngine;
 
 using Fingers.Core.Progress;
+using Fingers.Core.Publish;
 using Fingers.Core.Services.GameStateMachine;
 using Fingers.Core.Services.GameStateMachine.States;
 using Fingers.Core.Services.Progress;
@@ -22,6 +23,7 @@ namespace Fingers.UI.Gameplay
         [SerializeField] private GameObject promptStart;
         [SerializeField] private GameObject promptEnemy;
 
+        private PublishHandler _publishHandler;
         private IProgressProviderService _progressProviderService;
         private GameplayStateMachine _gameplayStateMachine;
         private MainMenuHandler _mainMenuHandler;
@@ -38,10 +40,12 @@ namespace Fingers.UI.Gameplay
             GetComponent<Canvas>().worldCamera = Camera.main;
         }
 
-        public void Construct(IProgressProviderService progressProviderService,
+        public void Construct(PublishHandler publishHandler,
+            IProgressProviderService progressProviderService,
             MainMenuHandler mainMenuHandler,
             HudView hudView)
         {
+            _publishHandler = publishHandler;
             _progressProviderService = progressProviderService;
             _mainMenuHandler = mainMenuHandler;
             _hudView = hudView;
@@ -160,9 +164,12 @@ namespace Fingers.UI.Gameplay
                 
             if (_progressProviderService.ProgressData.ScoresData.DayRecordNumber < _scores)
                 _progressProviderService.ProgressData.ScoresData.DayRecordNumber = _scores;
-                
+
             if (_progressProviderService.ProgressData.ScoresData.RecordNumber < _scores)
+            {
                 _progressProviderService.ProgressData.ScoresData.RecordNumber = _scores;
+                _publishHandler.SetLeaderBoard(_scores);
+            }
         }
     }
 }

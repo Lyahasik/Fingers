@@ -6,7 +6,6 @@ using Fingers.Core.Publish.Services.Analytics;
 using Fingers.Core.Services;
 using Fingers.Core.Services.Factories.Gameplay;
 using Fingers.Core.Services.Factories.UI;
-using Fingers.Core.Services.GameStateMachine;
 using Fingers.Core.Services.Localization;
 using Fingers.Core.Services.Progress;
 using Fingers.Core.Services.StaticData;
@@ -98,7 +97,7 @@ namespace Fingers.Gameplay
             PlayerFinger playerFinger = _gameplayFactory.CreatePlayerFinger();
             
             GameplayHandler gameplayHandler = _gameplayFactory.CreateGameplayHandler();
-            gameplayHandler.Construct(_progressProviderService, mainMenuHandler, hudView);
+            gameplayHandler.Construct(_publishHandler, _progressProviderService, mainMenuHandler, hudView);
             gameplayHandler.Initialize(_staticDataService, updateHandler, enemiesArea, playerFinger);
 
             mainMenuHandler.SetGameplayHandler(gameplayHandler);
