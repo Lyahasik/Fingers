@@ -38,6 +38,7 @@ namespace Fingers.UI.MainMenu
 
         private int _recordScores;
         private int _currentScores;
+        private bool _isReplay;
         private bool _isEndGame;
 
         public GameplayHandler GameplayHandler
@@ -112,8 +113,12 @@ namespace Fingers.UI.MainMenu
         {
             _currentScores = scores;
             
-            if (_currentScores > _recordScores * 0f)
+            if (!_isReplay
+                && _currentScores < _recordScores
+                && _currentScores > _recordScores * 0.5f)
             {
+                _isReplay = true;
+                
                 cap.SetActive(true);
                 replayWindow.gameObject.SetActive(true);
                 feedbackEndGame.PlayFeedbacks();
@@ -128,8 +133,9 @@ namespace Fingers.UI.MainMenu
         {
             if (_isEndGame)
                 return;
-            
+
             _currentScores = scores;
+            _isReplay = false;
             _isEndGame = true;
             
             feedbackEndGame.PlayFeedbacks();
@@ -163,6 +169,11 @@ namespace Fingers.UI.MainMenu
             replayWindow.gameObject.SetActive(false);
             
             _gameplayHandler.ChangeState<GameplayPrepareState>();
+        }
+
+        public void DeactivateGameplay()
+        {
+            _gameplayHandler.DeactivateGameplay();
         }
     }
 }

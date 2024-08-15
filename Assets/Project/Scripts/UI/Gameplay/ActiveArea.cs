@@ -38,6 +38,7 @@ namespace Fingers.UI.Gameplay
 
             _gameplayArea.UpdateFingerPosition(_mainCamera.ScreenToWorldPoint(eventData.position));
             
+            _gameplayHandler.PreparePromptEnemy();
             _gameplayHandler.ChangeState<GameplayActiveState>();
             
             if (_gameplayHandler.ActiveState is GameplayPrepareState)
@@ -58,6 +59,9 @@ namespace Fingers.UI.Gameplay
             if (_gameplayHandler.ActiveState is not GameplayPauseState
                 && _gameplayHandler.ActiveState is not GameplayPrepareState)
                 _gameplayHandler.ChangeState<GameplayInactiveState>();
+            
+            if (_gameplayHandler.ActiveState is GameplayPrepareState)
+                _gameplayHandler.PreparePromptStart();
         }
 
         private void CheckHit(Vector3 newPosition)

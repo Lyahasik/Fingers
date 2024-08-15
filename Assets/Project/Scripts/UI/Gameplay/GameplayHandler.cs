@@ -18,12 +18,17 @@ namespace Fingers.UI.Gameplay
         [SerializeField] private ActiveArea activeArea;
         [SerializeField] private GameplayArea gameplayArea;
 
+        [Space]
+        [SerializeField] private GameObject promptStart;
+        [SerializeField] private GameObject promptEnemy;
+
         private IProgressProviderService _progressProviderService;
         private GameplayStateMachine _gameplayStateMachine;
         private MainMenuHandler _mainMenuHandler;
         private HudView _hudView;
-        
+
         private int _scores;
+        private bool _isFailFirstEnemy;
 
         public IState ActiveState => _gameplayStateMachine.ActiveState;
         public GameplayArea GameplayArea => gameplayArea;
@@ -54,6 +59,8 @@ namespace Fingers.UI.Gameplay
             _gameplayStateMachine.Initialize(staticDataService, updateHandler, this);
             
             Register(_progressProviderService);
+            
+            UpdateScores(0);
         }
 
         public void Register(IProgressProviderService progressProviderService)
@@ -93,9 +100,21 @@ namespace Fingers.UI.Gameplay
             _gameplayStateMachine.Enter<TState>();
         }
 
+        public void PreparePromptStart()
+        {
+            promptStart.SetActive(!_isFailFirstEnemy);
+        }
+
+        public void PreparePromptEnemy()
+        {
+            promptEnemy.SetActive(_isFailFirstEnemy);
+        }
+
         public void StartGame()
         {
             gameplayArea.Activate();
+            
+            _isFailFirstEnemy = false;
         }
 
         public void PauseGame()
@@ -108,8 +127,19 @@ namespace Fingers.UI.Gameplay
         {
             WriteProgress();
 
+            if (_scores < 70)
+                _isFailFirstEnemy = true;
+
             _mainMenuHandler.ActivateMenu(_scores);
+            gameplayArea.Pause();
+        }
+
+        public void DeactivateGameplay()
+        {
             gameplayArea.Deactivate();
+            
+            promptStart.SetActive(false);
+            promptEnemy.SetActive(false);
             
             UpdateScores(0);
         }
