@@ -174,6 +174,7 @@ namespace Fingers.UI.MainMenu
         public void DeactivateGameplay()
         {
             _gameplayHandler.DeactivateGameplay();
+            _processingAdsService.ShowAdsInterstitial();
         }
     }
 }
