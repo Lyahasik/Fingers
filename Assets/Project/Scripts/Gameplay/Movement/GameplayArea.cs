@@ -1,3 +1,4 @@
+using Fingers.Core.Services.GameStateMachine;
 using Fingers.Core.Services.StaticData;
 using UnityEngine;
 
@@ -111,6 +112,8 @@ namespace Fingers.Gameplay.Movement
             
             _enemiesArea.TryUpdateDifficulty(scores);
             TryUpdateBackground();
+            
+            CheckHit();
         }
 
         private int GetScores()
@@ -138,6 +141,13 @@ namespace Fingers.Gameplay.Movement
             
             background1.sprite = _staticDataService.Gameplay.difficulties[modId].background;
             background2.sprite = _staticDataService.Gameplay.difficulties[nextModId].background;
+        }
+
+        private void CheckHit()
+        {
+            RaycastHit hit;
+            if (Physics.SphereCast(_playerFinger.Position, _staticDataService.Gameplay.playerRadius, Vector3.forward, out hit))
+                _gameplayHandler.ChangeState<GameplayPauseState>();
         }
     }
 }

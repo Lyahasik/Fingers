@@ -48,8 +48,6 @@ namespace Fingers.UI.Gameplay
         public void OnDrag(PointerEventData eventData)
         {
             _gameplayArea.UpdateFingerPosition(_mainCamera.ScreenToWorldPoint(eventData.position));
-
-            CheckHit(eventData.position);
         }
 
         public void OnPointerUp(PointerEventData eventData)
@@ -62,13 +60,6 @@ namespace Fingers.UI.Gameplay
             
             if (_gameplayHandler.ActiveState is GameplayPrepareState)
                 _gameplayHandler.PreparePromptStart();
-        }
-
-        private void CheckHit(Vector3 newPosition)
-        {
-            RaycastHit hit;
-            if (Physics.SphereCast(_mainCamera.ScreenToWorldPoint(newPosition), _staticDataService.Gameplay.playerRadius, Vector3.forward, out hit))
-                _gameplayHandler.ChangeState<GameplayPauseState>();
         }
     }
 }

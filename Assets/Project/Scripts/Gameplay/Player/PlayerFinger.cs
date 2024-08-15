@@ -7,6 +7,9 @@ namespace Fingers.Gameplay.Player
         [SerializeField] private GameObject trail;
         
         private Vector3 _startPosition;
+        private Vector3 _position;
+
+        public Vector3 Position => _position;
 
         private void Awake()
         {
@@ -17,6 +20,7 @@ namespace Fingers.Gameplay.Player
 
         public void UpdatePosition(in Vector3 newPosition)
         {
+            _position = newPosition;
             transform.localPosition = new Vector3(newPosition.x, newPosition.y, _startPosition.z);
             
             if (!trail.activeSelf)
