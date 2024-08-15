@@ -221,6 +221,62 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5151609743423597929, guid: 62222ef8fd4084b47b37f26db6f0bbac, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5151609743423597929, guid: 62222ef8fd4084b47b37f26db6f0bbac, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5151609743423597929, guid: 62222ef8fd4084b47b37f26db6f0bbac, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 518306583224023147}
+    - target: {fileID: 5151609743423597929, guid: 62222ef8fd4084b47b37f26db6f0bbac, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5151609743423597929, guid: 62222ef8fd4084b47b37f26db6f0bbac, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TryReviewGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 5151609743423597929, guid: 62222ef8fd4084b47b37f26db6f0bbac, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Fingers.UI.MainMenu.MenuView, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5151609743423597929, guid: 62222ef8fd4084b47b37f26db6f0bbac, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5294446731420708134, guid: 62222ef8fd4084b47b37f26db6f0bbac, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5294446731420708134, guid: 62222ef8fd4084b47b37f26db6f0bbac, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5294446731420708134, guid: 62222ef8fd4084b47b37f26db6f0bbac, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 518306583224023147}
+    - target: {fileID: 5294446731420708134, guid: 62222ef8fd4084b47b37f26db6f0bbac, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5294446731420708134, guid: 62222ef8fd4084b47b37f26db6f0bbac, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ConfirmEndGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 5294446731420708134, guid: 62222ef8fd4084b47b37f26db6f0bbac, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Fingers.UI.MainMenu.MenuView, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5294446731420708134, guid: 62222ef8fd4084b47b37f26db6f0bbac, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6433293899872931614, guid: 62222ef8fd4084b47b37f26db6f0bbac, type: 3}
       propertyPath: managedReferences[547929872772104197].PlayEvents.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: DeactivateGameplay

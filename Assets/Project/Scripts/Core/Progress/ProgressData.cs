@@ -12,6 +12,8 @@ namespace Fingers.Core.Progress
         public WalletData Wallet;
         public ScoresData ScoresData;
         
+        public bool IsReviewedGame;
+        
         public static bool operator==(ProgressData value1, ProgressData value2)
         {
             if (ReferenceEquals(value1, null) || ReferenceEquals(value2, null))

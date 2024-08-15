@@ -73,6 +73,7 @@ namespace Fingers.Core.Initialize
                     _coreServicesContainer.Single<IGameplayFactory>(),
                     _coreServicesContainer.Single<IStaticDataService>(),
                     _coreServicesContainer.Single<IProcessingAnalyticsService>(),
+                    publishHandler,
                     _coreServicesContainer.Single<IProcessingAdsService>(),
                     _coreServicesContainer.Single<IWalletOperationService>(),
                     _coreServicesContainer.Single<IProgressProviderService>()));

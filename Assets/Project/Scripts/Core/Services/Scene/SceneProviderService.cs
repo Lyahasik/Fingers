@@ -1,5 +1,6 @@
 using System;
 using Fingers.Constants;
+using Fingers.Core.Publish;
 using Fingers.Core.Publish.Services.Ads;
 using Fingers.Core.Publish.Services.Analytics;
 using Fingers.Core.Services.Factories.Gameplay;
@@ -26,6 +27,7 @@ namespace Fingers.Core.Services.Scene
         private readonly IUIFactory uiFactory;
         private readonly IGameplayFactory gameplayFactory;
         private readonly IProcessingAnalyticsService processingAnalyticsService;
+        private readonly PublishHandler publishHandler;
         private readonly IProcessingAdsService processingAdsService;
         private readonly IProgressProviderService progressProviderService;
         private readonly IWalletOperationService walletOperationService;
@@ -42,6 +44,7 @@ namespace Fingers.Core.Services.Scene
             IGameplayFactory gameplayFactory,
             IStaticDataService staticDataService,
             IProcessingAnalyticsService processingAnalyticsService,
+            PublishHandler publishHandler,
             IProcessingAdsService processingAdsService,
             IWalletOperationService walletOperationService,
             IProgressProviderService progressProviderService)
@@ -53,6 +56,7 @@ namespace Fingers.Core.Services.Scene
             this.gameplayFactory = gameplayFactory;
             this.staticDataService = staticDataService;
             this.processingAnalyticsService = processingAnalyticsService;
+            this.publishHandler = publishHandler;
             this.processingAdsService = processingAdsService;
             this.walletOperationService = walletOperationService;
             this.progressProviderService = progressProviderService;
@@ -86,6 +90,7 @@ namespace Fingers.Core.Services.Scene
             initializerLevel.Construct(staticDataService,
                 localizationService,
                 progressProviderService,
+                publishHandler,
                 processingAdsService,
                 processingAnalyticsService,
                 gameplayFactory,

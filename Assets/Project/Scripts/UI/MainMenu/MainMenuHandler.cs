@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Fingers.Core.Publish;
 using Fingers.Core.Publish.Services.Ads;
 using Fingers.Core.Services.Localization;
 using Fingers.Core.Services.Progress;
@@ -30,6 +31,7 @@ namespace Fingers.UI.MainMenu
 
         public void Initialize(IStaticDataService staticDataService,
             ILocalizationService localizationService,
+            PublishHandler publishHandler,
             IProcessingAdsService processingAdsService,
             IProgressProviderService progressProviderService)
         {
@@ -37,8 +39,8 @@ namespace Fingers.UI.MainMenu
             
             _windows.Add(menuView);
             
-            menuView.Construct(processingAdsService);
-            menuView.Initialize(staticDataService, localizationService, progressProviderService);
+            menuView.Construct(publishHandler, processingAdsService, progressProviderService);
+            menuView.Initialize(staticDataService, localizationService);
         }
 
         public void ActivateMenu(int scores)

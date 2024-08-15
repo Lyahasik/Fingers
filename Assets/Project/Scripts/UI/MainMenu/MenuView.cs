@@ -1,4 +1,5 @@
 using Fingers.Core.Progress;
+using Fingers.Core.Publish;
 using Fingers.Core.Publish.Services.Ads;
 using Fingers.Core.Services.GameStateMachine;
 using Fingers.Core.Services.Localization;
@@ -12,7 +13,7 @@ using UnityEngine;
 
 namespace Fingers.UI.MainMenu
 {
-    public class MenuView : MonoBehaviour, IWindow, IReadingProgress
+    public class MenuView : MonoBehaviour, IWindow, IWritingProgress
     {
         [SerializeField] private WindowType windowType;
 
@@ -33,8 +34,12 @@ namespace Fingers.UI.MainMenu
         [SerializeField] private MMF_Player feedbackEndGame;
         [SerializeField] private MMF_Player feedbackOpenMenu;
 
+        private PublishHandler _publishHandler;
         private IProcessingAdsService _processingAdsService;
+        private IProgressProviderService _progressProviderService;
         private GameplayHandler _gameplayHandler;
+
+        private bool _isReviewedGame;
 
         private int _recordScores;
         private int _currentScores;
@@ -46,29 +51,32 @@ namespace Fingers.UI.MainMenu
             set => _gameplayHandler = value;
         }
 
-        public void Construct(IProcessingAdsService processingAdsService)
+        public void Construct(PublishHandler publishHandler,
+            IProcessingAdsService processingAdsService,
+            IProgressProviderService progressProviderService)
         {
+            _publishHandler = publishHandler;
             _processingAdsService = processingAdsService;
+            _progressProviderService = progressProviderService;
         }
 
         public void Initialize(IStaticDataService staticDataService,
-            ILocalizationService localizationService,
-            IProgressProviderService progressProviderService)
+            ILocalizationService localizationService)
         {
             Debug.Log($"[{ GetType() }] initialize");
             
-            walletView.Initialize(progressProviderService);
+            walletView.Initialize(_progressProviderService);
             
             resultScoresView.Construct(staticDataService, localizationService);
-            resultScoresView.Initialize(progressProviderService);
+            resultScoresView.Initialize(_progressProviderService);
             
-            localeDropdown.Construct(localizationService, progressProviderService);
+            localeDropdown.Construct(localizationService, _progressProviderService);
             localeDropdown.Initialize();
             
             replayWindow.Construct(this);
             replayWindow.Initialize(_processingAdsService);
             
-            Register(progressProviderService);
+            Register(_progressProviderService);
         }
 
         public void Register(IProgressProviderService progressProviderService)
@@ -78,12 +86,20 @@ namespace Fingers.UI.MainMenu
 
         public void LoadProgress(ProgressData progress)
         {
+            _isReviewedGame = progress.IsReviewedGame;
             _recordScores = progress.ScoresData.RecordNumber;
         }
 
         public void UpdateProgress(ProgressData progress)
         {
             _recordScores = progress.ScoresData.RecordNumber;
+        }
+
+        public void WriteProgress()
+        {
+            _progressProviderService.ProgressData.IsReviewedGame = _isReviewedGame;
+            
+            _progressProviderService.SaveProgress();
         }
 
         private void OnDisable()
@@ -121,6 +137,15 @@ namespace Fingers.UI.MainMenu
                 
                 cap.SetActive(true);
                 replayWindow.gameObject.SetActive(true);
+                feedbackEndGame.PlayFeedbacks();
+            }
+            else if (!_isReviewedGame
+                     && _currentScores > 50)
+            {
+                _isReviewedGame = true;
+                
+                cap.SetActive(true);
+                reviewWindow.gameObject.SetActive(true);
                 feedbackEndGame.PlayFeedbacks();
             }
             else
@@ -175,6 +200,12 @@ namespace Fingers.UI.MainMenu
         {
             _gameplayHandler.DeactivateGameplay();
             _processingAdsService.ShowAdsInterstitial();
+        }
+
+        public void TryReviewGame()
+        {
+            _publishHandler.StartCheckRateGame();
+            ConfirmEndGame();
         }
     }
 }
