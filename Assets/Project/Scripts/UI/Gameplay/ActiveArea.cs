@@ -2,6 +2,7 @@ using Fingers.Core.Services.GameStateMachine;
 using Fingers.Core.Services.StaticData;
 using Fingers.Gameplay.Movement;
 using Fingers.UI.MainMenu;
+using UndergroundFortress.Extensions;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -15,10 +16,12 @@ namespace Fingers.UI.Gameplay
         private GameplayArea _gameplayArea;
         
         private Camera _mainCamera;
+        private RectTransform _rectTransform;
 
         private void Start()
         {
             _mainCamera = Camera.main;
+            _rectTransform = GetComponent<RectTransform>();
         }
 
         public void Construct(IStaticDataService staticDataService,
@@ -47,7 +50,9 @@ namespace Fingers.UI.Gameplay
 
         public void OnDrag(PointerEventData eventData)
         {
-            _gameplayArea.UpdateFingerPosition(_mainCamera.ScreenToWorldPoint(eventData.position));
+            Vector3 worldPosition = _mainCamera.ScreenToWorldPoint(eventData.position);
+            
+            _gameplayArea.UpdateFingerPosition(_rectTransform.KeepPointInBoundaries(worldPosition));
         }
 
         public void OnPointerUp(PointerEventData eventData)
