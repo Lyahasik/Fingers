@@ -6,13 +6,8 @@ namespace Fingers.Core.Publish.Web.Yandex
     {
         [DllImport("__Internal")]
         private static extern void TargetAdsExtern(int id);
-        [DllImport("__Internal")]
-        private static extern void TargetActivityExtern(int number);
         
         public override void TargetAds(int id) => 
             TargetAdsExtern(id);
-
-        public override void TargetActivity(int number) => 
-            TargetActivityExtern(number);
     }
 }

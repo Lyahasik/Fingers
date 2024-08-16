@@ -13,6 +13,8 @@ namespace Fingers.Core.Publish
         private static extern void CheckRateGameExtern();
         [DllImport("__Internal")]
         private static extern void RateGameExtern();
+        [DllImport("__Internal")]
+        private static extern void TargetReviewExtern();
 
         private IProgressProviderService _progressProviderService;
         private IProcessingAdsService _processingAdsService;
@@ -77,7 +79,10 @@ namespace Fingers.Core.Publish
         private void StartRateGame()
         {
             if (!OSManager.IsEditor())
+            {
                 RateGameExtern();
+                TargetReviewExtern();
+            }
         }
     }
 }

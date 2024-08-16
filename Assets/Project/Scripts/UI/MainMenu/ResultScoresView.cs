@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using Fingers.Constants;
 using TMPro;
 using UnityEngine;
@@ -12,6 +13,9 @@ namespace Fingers.UI.MainMenu
 {
     public class ResultScoresView : MonoBehaviour, IReadingProgress
     {
+        [DllImport("__Internal")]
+        private static extern void TargetMedalExtern(int value);
+        
         [SerializeField] private TMP_Text scoreValue;
         [SerializeField] private TMP_Text descriptionValue;
         
@@ -104,7 +108,12 @@ namespace Fingers.UI.MainMenu
             for (var i = 0; i < medalsProgress.Count; i++)
             {
                 if (medalsProgress[i] > 0)
+                {
+                    if (medalsProgress[i] == 1)
+                        TargetMedalExtern(i + 1);
+                    
                     this.medalsProgress[i].Activate(medalsProgress[i]);
+                }
             }
         }
     }

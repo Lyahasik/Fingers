@@ -52,6 +52,11 @@ namespace Fingers.Gameplay.Movement
             _playerFinger = playerFinger;
         }
 
+        public void Initialize()
+        {
+            _playerFinger.Construct(_gameplayHandler);
+        }
+
         private void Update()
         {
             MovementArea();
@@ -145,9 +150,9 @@ namespace Fingers.Gameplay.Movement
 
         private void CheckHit()
         {
-            RaycastHit hit;
-            if (Physics.SphereCast(_playerFinger.Position, _staticDataService.Gameplay.playerRadius, Vector3.forward, out hit))
-                _gameplayHandler.ChangeState<GameplayPauseState>();
+            // RaycastHit hit;
+            // if (Physics.SphereCast(_playerFinger.Position, _staticDataService.Gameplay.playerRadius, Vector3.forward, out hit))
+            //     _gameplayHandler.ChangeState<GameplayPauseState>();
         }
     }
 }

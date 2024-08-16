@@ -18,10 +18,5 @@ namespace Fingers.Core.Publish.Services.Analytics
 
         public void TargetAds(int id) => 
             _analyticsModule?.TargetAds(id);
-
-        public void TargetActivity(int totalNumber)
-        {
-            _analyticsModule?.TargetActivity(totalNumber);
-        }
     }
 }

@@ -1,14 +1,18 @@
 mergeInto(LibraryManager.library, {
 
     LoadedExtern: function () {
-        ym(97174711,'reachGoal','loaded');
+        ym(98088628,'reachGoal','loaded');
     },
 
-    TargetAdsExtern: function (id) {
-        ym(97174711,'reachGoal','ads' + id);
+    TargetMedalExtern: function (id) {
+        ym(98088628,'reachGoal','medal' + id);
     },
 
-    TargetActivityExtern: function (number) {
-        ym(97174711,'reachGoal','activity' + number);
+    TargetAdsExtern: function () {
+        ym(98088628,'reachGoal','ads');
+    },
+
+    TargetReviewExtern: function () {
+        ym(98088628,'reachGoal','review');
     }
 });

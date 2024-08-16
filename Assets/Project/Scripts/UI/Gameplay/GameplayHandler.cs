@@ -59,6 +59,7 @@ namespace Fingers.UI.Gameplay
             PlayerFinger playerFinger)
         {
             gameplayArea.Construct(_staticDataService, this, enemiesArea, playerFinger);
+            gameplayArea.Initialize();
             activeArea.Construct(_staticDataService, _mainMenuHandler, this, gameplayArea);
 
             _gameplayStateMachine = new GameplayStateMachine();

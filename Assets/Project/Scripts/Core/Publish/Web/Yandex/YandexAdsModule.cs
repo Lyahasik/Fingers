@@ -12,6 +12,9 @@ namespace Fingers.Core.Publish.Web.Yandex
     
         [DllImport("__Internal")]
         private static extern void ShowAdsRewardExtern();
+        
+        [DllImport("__Internal")]
+        private static extern void TargetAdsExtern();
 
         public YandexAdsModule()
         {
@@ -33,6 +36,7 @@ namespace Fingers.Core.Publish.Web.Yandex
         public override void ShowAdsReward()
         {
             ShowAdsRewardExtern();
+            TargetAdsExtern();
         }
 
         public override void ShowAdsReward(int rewardId)

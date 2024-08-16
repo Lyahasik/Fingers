@@ -46,7 +46,7 @@ MonoBehaviour:
     - {fileID: 6111557630021388901, guid: 8fb4142f7a7bfb14d88985741d50f4cd, type: 3}
     - {fileID: 4962775738735608581, guid: e6c8ae9842856d6439dadca752c3172b, type: 3}
   - transitionScores: 800
-    speedMove: 10
+    speedMove: 11
     spawnDistance: 7
     background: {fileID: 21300000, guid: 16ff6f72549fe3a488a325420482c69c, type: 3}
     enemiesGroups:
@@ -55,7 +55,7 @@ MonoBehaviour:
     - {fileID: 2881674589057400316, guid: 273f4330766194c46909753368289588, type: 3}
     - {fileID: 9052643597206147082, guid: 47fd3b95b46b2e0449ba726dbe8c1bb2, type: 3}
   - transitionScores: 800
-    speedMove: 10
+    speedMove: 12
     spawnDistance: 6
     background: {fileID: 21300000, guid: d4cd394072bd4234d84c4dd6ad26a197, type: 3}
     enemiesGroups:
@@ -64,7 +64,7 @@ MonoBehaviour:
     - {fileID: 814653318383991954, guid: 80ea28e89c6bc5e45afd0a9d54c04cb2, type: 3}
     - {fileID: 3761540965734519079, guid: 93e5831976b8ff54d96752e15675de57, type: 3}
   - transitionScores: 1000
-    speedMove: 10
+    speedMove: 13
     spawnDistance: 5
     background: {fileID: 21300000, guid: 89b0fbaa146c59144bc24c3613367ef3, type: 3}
     enemiesGroups:
@@ -73,7 +73,7 @@ MonoBehaviour:
     - {fileID: 2789950862110323151, guid: d755d1c1d27fa6747947fefd0763d7a7, type: 3}
     - {fileID: 3426415034988770342, guid: 25a5005c751b5e14f8b57cb60e6dfb11, type: 3}
   - transitionScores: 1200
-    speedMove: 9
+    speedMove: 14
     spawnDistance: 5
     background: {fileID: 21300000, guid: e3586838fea67c146b807820423e376e, type: 3}
     enemiesGroups:
@@ -81,7 +81,7 @@ MonoBehaviour:
     - {fileID: 6465576206463281395, guid: 6a70a024f32222b4eb5ee7787a6fee4a, type: 3}
     - {fileID: 2441926406020883380, guid: 0976c4b3abbfc2941886c3457b82cf04, type: 3}
   - transitionScores: 10000000
-    speedMove: 8
+    speedMove: 15
     spawnDistance: 5
     background: {fileID: 21300000, guid: 00ebc0d10c8275d40aca77b05cb5dab5, type: 3}
     enemiesGroups:

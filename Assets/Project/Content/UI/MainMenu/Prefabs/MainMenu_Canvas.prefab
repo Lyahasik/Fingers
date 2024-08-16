@@ -137,6 +137,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5710153755574089726}
     m_Modifications:
+    - target: {fileID: 430257185051040489, guid: 62222ef8fd4084b47b37f26db6f0bbac, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 430257185051040489, guid: 62222ef8fd4084b47b37f26db6f0bbac, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 521021574837458201, guid: 62222ef8fd4084b47b37f26db6f0bbac, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -275,7 +283,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5294446731420708134, guid: 62222ef8fd4084b47b37f26db6f0bbac, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5294446731420708134, guid: 62222ef8fd4084b47b37f26db6f0bbac, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -292,6 +300,10 @@ PrefabInstance:
     - target: {fileID: 5294446731420708134, guid: 62222ef8fd4084b47b37f26db6f0bbac, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: Fingers.UI.MainMenu.MenuView, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5294446731420708134, guid: 62222ef8fd4084b47b37f26db6f0bbac, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5294446731420708134, guid: 62222ef8fd4084b47b37f26db6f0bbac, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName

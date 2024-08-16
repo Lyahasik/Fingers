@@ -168,13 +168,13 @@ namespace Fingers.UI.MainMenu
             feedbackEndGame.PlayFeedbacks();
         }
 
-        public void ConfirmEndGame()
+        public void ConfirmEndGame(bool isShowAds = true)
         {
             _isEndGame = true;
-            OpenMainMenu();
+            OpenMainMenu(isShowAds);
         }
 
-        public void OpenMainMenu()
+        public void OpenMainMenu(bool isShowAds)
         {
             if (!_isEndGame)
                 return;
@@ -187,7 +187,8 @@ namespace Fingers.UI.MainMenu
             
             feedbackOpenMenu.PlayFeedbacks();
             
-            _processingAdsService.ShowAdsInterstitial();
+            if (isShowAds)
+                _processingAdsService.ShowAdsInterstitial();
         }
 
         public void ContinueGame()
@@ -207,7 +208,7 @@ namespace Fingers.UI.MainMenu
         public void TryReviewGame()
         {
             _publishHandler.StartCheckRateGame();
-            ConfirmEndGame();
+            ConfirmEndGame(false);
         }
     }
 }
